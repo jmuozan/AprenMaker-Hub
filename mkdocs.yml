@@ -1,5 +1,22 @@
 site_name: AprenMaker-Hub
 site_url: https://jmuozan.github.io/AprenMaker-Hub/
+
+repo_url: https://github.com/jmuozan/AprenMaker-Hub
+repo_name: jmuozan/AprenMaker-Hub
+
+
+nav:
+  - Home: 
+    - index.md
+    - diagram-examples.md
+    - content-tabs.md
+    - code-examples.md
+    - admonitions.md
+
+  - About:
+    - Project Info: About/about_info.md
+    - License: About/license_info.md
+
 theme:
   name: material
   font:
@@ -9,16 +26,21 @@ theme:
   favicon: assets/favicon.ico
   features:
     - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections 
+    - navigation.expand     
+    - navigation.top        
   palette:
     # Dark Mode
     - scheme: slate
       toggle:
-        icon: material/crystal-ball
+        icon: material/lightbulb
         name: Switch to light mode
     # Light Mode
     - scheme: default
       toggle:
-        icon: material/weather-lightning
+        icon: material/lightbulb-outline
         name: Switch to dark mode
 
 extra_css:
