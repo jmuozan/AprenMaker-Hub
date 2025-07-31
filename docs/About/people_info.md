@@ -4,6 +4,7 @@ Meet the amazing people who make AprenMaker-Hub possible! This project thrives t
 
 ## People
 
+
 ---
 
 ## How to Join the Community
@@ -56,7 +57,7 @@ We're always looking for passionate contributors to help improve AprenMaker-Hub!
 ## Contributor Guidelines
 
 !!! warning "Before Contributing"
-    - Read our [License](license.md) to understand the GPL-3.0 requirements
+    - Read our [License](license_info.md) to understand the GPL-3.0 requirements
     - Follow our coding and documentation standards
     - Be respectful and inclusive in all interactions
     - Test your changes before submitting

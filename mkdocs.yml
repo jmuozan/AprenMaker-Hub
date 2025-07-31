@@ -4,7 +4,6 @@ site_url: https://jmuozan.github.io/AprenMaker-Hub/
 repo_url: https://github.com/jmuozan/AprenMaker-Hub
 repo_name: jmuozan/AprenMaker-Hub
 
-
 nav:
   - Home: 
     - index.md
@@ -33,7 +32,7 @@ theme:
     - navigation.expand     
     - navigation.top        
   palette:
-    # Dark Mode
+    # Dark Mode
     - scheme: slate
       toggle:
         icon: material/lightbulb
@@ -46,6 +45,9 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+
+plugins:
+  - search
 
 markdown_extensions:
   - attr_list
