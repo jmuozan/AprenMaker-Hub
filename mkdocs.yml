@@ -16,6 +16,7 @@ nav:
   - About:
     - Project Info: About/about_info.md
     - License: About/license_info.md
+    - Contributors Info: About/people_info.md
 
 theme:
   name: material
