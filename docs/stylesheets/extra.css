@@ -39,7 +39,7 @@
 .social-link:hover {
     color: #f0ff33;
     transform: translateY(-2px) scale(1.1);
-}/* Contributor Cards Styling */
+}
 .contributors-grid {
     display: flex;
     flex-direction: column;
@@ -76,8 +76,8 @@
 }
 
 .contributor-name {
-    margin: 0 0 0.25rem 0;
-    color: white; /* Changed to white as requested */
+    margin: 0 0 0.2rem 0;
+    color: #c4d400; /* Changed to white as requested */
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -95,8 +95,8 @@
 }
 
 .contributor-image {
-    width: 120px; /* Made bigger as requested */
-    height: 120px; /* Made bigger as requested */
+    width: 200px; 
+    height: 200px; 
     border-radius: 8px;
     object-fit: cover;
     transition: opacity 0.3s ease;
@@ -120,7 +120,6 @@
     display: flex;
     gap: 0.75rem;
     margin-top: 1rem;
-    /* Removed border-top separator line */
 }
 
 .social-link {
@@ -129,24 +128,22 @@
     justify-content: center;
     width: 36px;
     height: 36px;
-    /* Removed all background and border styles - no boxes */
     color: #d8eb00;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    color: #f0ff33; /* Brighter on hover */
+    color: #f0ff33; 
     transform: translateY(-2px) scale(1.1);
 }
 
 .social-link .social-icon {
     width: 20px;
     height: 20px;
-    fill: currentColor; /* This makes the SVG inherit the color from the parent */
+    fill: currentColor; 
 }
 
-/* Remove the divider styles completely */
 
 /* Dark mode adjustments */
 [data-md-color-scheme="slate"] .contributor-card {
@@ -180,10 +177,6 @@
         text-align: center;
     }
     
-    .contributor-image {
-        width: 100px;
-        height: 100px;
-    }
     
     .contributor-socials {
         justify-content: center;
