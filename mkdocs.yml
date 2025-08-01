@@ -13,9 +13,10 @@ nav:
     - admonitions.md
 
   - About:
-    - Project Info: About/about_info.md
+    - Project: About/about_info.md
     - License: About/license_info.md
-    - Contributors Info: About/people_info.md
+    - Contributors: About/people_info.md
+    - How to Contribute: About/contribute.md
 
 theme:
   name: material

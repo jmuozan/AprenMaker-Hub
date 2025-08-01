@@ -1,45 +1,66 @@
-```
-git clone https://github.com/jmuozan/AprenMaker-Hub.git
-```
-```
-cd folder && code .
-```
-```
-python -m venv venv
-```
-```
-source venv/bin/activate
-```
-```
-pip install mkdocs-material
-```
+# About AprenMaker-Hub
 
+## What is AprenMaker-Hub?
 
-social_icons = {
-                'linkedin': ':material-linkedin:',
-                'github': ':material-github:',
-                'instagram': ':material-instagram:', 
-                'twitter': ':material-twitter:',
-                'youtube': ':material-youtube:',
-                'facebook': ':material-facebook:',
-                'email': ':fontawesome-solid-envelope:',
-                'website': ':fontawesome-solid-globe:'
-            }
+AprenMaker-Hub is a comprehensive educational documentation platform designed to facilitate learning and knowledge sharing in the maker community. This project serves as a centralized hub for tutorials, guides, and educational resources that empower creators, students, and educators to explore technology, programming, and hands-on making.
 
+## Mission
 
+Our mission is to democratize access to high-quality educational content and create a collaborative environment where learners can discover, contribute, and grow together in the maker ecosystem.
 
-  social:
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/jorgemunozzanon/
-    - icon: fontawesome/brands/github
-      link: https://github.com/jmuozan
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/@jmuozan
-    - icon: fontawesome/solid/globe
-      link: https://jmuozan.github.io/docs/
-    - icon: fontawesome/solid/envelope
-      link: mailto:jmuozan@gmail.com
-    - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/jmunyozz?igsh=cWp2ZjQxdWQ5bTBu&utm_source=qr
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/jorgemunyozz
+## Key Features
+
+- **Comprehensive Documentation**: Well-structured tutorials and guides covering various topics
+- **Interactive Examples**: Hands-on code examples and practical demonstrations
+- **Community-Driven**: Open to contributions from educators and makers worldwide
+- **Modern Interface**: Built with MkDocs Material for an exceptional user experience
+- **Responsive Design**: Accessible across all devices and screen sizes
+
+## Technology Stack
+
+- **Documentation Framework**: MkDocs with Material theme
+- **Hosting**: GitHub Pages
+- **Version Control**: Git and GitHub
+- **Languages**: Markdown, HTML, CSS, JavaScript
+- **CI/CD**: GitHub Actions for automated deployment
+
+## Target Audience
+
+- **Students**: Learn new concepts and technologies through practical examples
+- **Educators**: Access ready-to-use educational materials and lesson plans
+- **Makers**: Discover projects and techniques to enhance your creations
+- **Developers**: Explore code examples and best practices
+
+## Getting Started
+
+1. Browse the documentation sections in the navigation menu
+2. Try the interactive code examples
+3. Follow along with the step-by-step tutorials
+4. Contribute your own content via GitHub
+
+## Contributing
+
+We welcome contributions from the community! Whether you want to:
+
+- Fix typos or improve existing content
+- Add new tutorials or examples
+- Suggest new topics or features
+- Report issues or bugs
+
+Visit our [GitHub repository](https://github.com/jmuozan/AprenMaker-Hub) to get started.
+
+## Contact
+
+For questions, suggestions, or collaboration opportunities, feel free to reach out:
+
+- **Email**: jmuozan@gmail.com
+- **LinkedIn**: [Jorge Muñoz Zanón](https://www.linkedin.com/in/jorgemunozzanon/)
+- **GitHub**: [jmuozan](https://github.com/jmuozan)
+
+## Acknowledgments
+
+This project is built with love for the maker and educational community. Special thanks to:
+
+- The MkDocs and Material theme developers
+- The open-source community for inspiration and tools
+- All contributors who help improve this resource
