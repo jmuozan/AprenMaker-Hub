@@ -1,4 +1,3 @@
-/* Import Libre Baskerville and NimbusSanL fonts */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nimbus+Sans+L:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
@@ -43,6 +42,25 @@ p, span, div, a, li, td, th, label, input, button {
 /* Code elements keep their monospace but fallback to Nimbus for other text */
 code, pre, .md-typeset code, .md-typeset pre {
   font-family: 'Red Hat Mono', var(--nimbus-font), monospace !important;
+}
+
+/* Libre Baskerville for italic text in markdown and contributor roles */
+em, i, .md-typeset em, .md-typeset i,
+.contributor-role {
+  font-family: 'Libre Baskerville', serif !important;
+  font-style: italic !important;
+}
+
+/* Dark mode - only change HOVER states and ACTIVE/CURRENT links to green */
+[data-md-color-scheme="slate"] a:hover,
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  color: #d8eb00 !important;
+}
+
+/* Active/current navigation items in dark mode */
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  color: #d8eb00 !important;
 }
 
 [data-md-color-scheme="default"] {
