@@ -1,9 +1,48 @@
+/* Import Libre Baskerville and NimbusSanL fonts */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nimbus+Sans+L:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
   --md-primary-fg-color: #000000;
   --md-primary-fg-color--light: #000000;
   --md-primary-fg-color--dark: #000000;
   --md-accent-fg-color: #d8eb00;
   --md-accent-fg-color--transparent: rgba(216, 235, 0, 0.1);
+  --nimbus-font: 'Nimbus Sans L', sans-serif;
+}
+
+/* Global font override for entire website */
+* {
+  font-family: var(--nimbus-font) !important;
+}
+
+/* Override Material Design theme fonts */
+body, .md-typeset {
+  font-family: var(--nimbus-font) !important;
+}
+
+/* Headers/Titles with bold Nimbus Sans */
+h1, h2, h3, h4, h5, h6,
+.md-typeset h1, .md-typeset h2, .md-typeset h3, 
+.md-typeset h4, .md-typeset h5, .md-typeset h6,
+.md-header__title, .md-nav__title, .md-footer__title {
+  font-family: var(--nimbus-font) !important;
+  font-weight: 700 !important;
+}
+
+/* Navigation elements */
+.md-nav__item, .md-nav__link, .md-tabs__item, .md-tabs__link {
+  font-family: var(--nimbus-font) !important;
+}
+
+/* Content elements */
+p, span, div, a, li, td, th, label, input, button {
+  font-family: var(--nimbus-font) !important;
+}
+
+/* Code elements keep their monospace but fallback to Nimbus for other text */
+code, pre, .md-typeset code, .md-typeset pre {
+  font-family: 'Red Hat Mono', var(--nimbus-font), monospace !important;
 }
 
 [data-md-color-scheme="default"] {
@@ -28,6 +67,7 @@
     gap: 2rem;
     max-width: 800px;
     margin: 0 auto;
+    font-family: var(--nimbus-font);
 }
 
 .contributor-card {
@@ -37,6 +77,7 @@
     padding: 1.5rem;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(216, 235, 0, 0.1);
+    font-family: var(--nimbus-font);
 }
 
 .contributor-card:hover {
@@ -59,16 +100,19 @@
 
 .contributor-name {
     margin: 0 0 0.2rem 0;
-    color: #c4d400; /* Changed to white as requested */
+    color: #c4d400;
     font-size: 1.5rem;
     font-weight: 600;
+    font-family: var(--nimbus-font);
 }
 
 .contributor-role {
     margin: 0;
-    color: #8fa000; /* Even darker tone */
+    color: #8fa000;
     font-size: 1rem;
     font-weight: 400;
+    font-style: italic;
+    font-family: 'Libre Baskerville', serif;
     opacity: 0.8;
 }
 
@@ -92,6 +136,7 @@
     margin: 1rem 0;
     line-height: 1.6;
     color: var(--md-default-fg-color);
+    font-family: var(--nimbus-font);
 }
 
 .contributor-bio p {
@@ -135,6 +180,45 @@
 
 .contributor-socials a.social-link:hover .social-icon {
     fill: #f0ff33;
+}
+
+/* LIGHT MODE IMPROVEMENTS */
+[data-md-color-scheme="default"] .contributor-card {
+    background: rgba(216, 235, 0, 0.08);
+    border-color: #b8cc00;
+    box-shadow: 0 2px 8px rgba(184, 204, 0, 0.15);
+}
+
+[data-md-color-scheme="default"] .contributor-card:hover {
+    box-shadow: 0 4px 16px rgba(184, 204, 0, 0.25);
+    border-color: #9db300;
+}
+
+[data-md-color-scheme="default"] .contributor-name {
+    color: #7a9900; /* Darker for better contrast on light background */
+}
+
+[data-md-color-scheme="default"] .contributor-role {
+    color: #5c7300; /* Much darker for better readability */
+    opacity: 0.9;
+}
+
+[data-md-color-scheme="default"] .contributor-socials a.social-link {
+    background: rgba(184, 204, 0, 0.15);
+    color: #7a9900 !important;
+}
+
+[data-md-color-scheme="default"] .contributor-socials a.social-link:hover {
+    background: rgba(184, 204, 0, 0.25);
+    color: #5c7300 !important;
+}
+
+[data-md-color-scheme="default"] .contributor-socials a.social-link .social-icon {
+    fill: #7a9900;
+}
+
+[data-md-color-scheme="default"] .contributor-socials a.social-link:hover .social-icon {
+    fill: #5c7300;
 }
 
 /* Dark mode adjustments */
