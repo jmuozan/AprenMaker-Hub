@@ -101,7 +101,7 @@
 .contributor-socials {
     display: flex;
     gap: 0.75rem;
-    margin-top: 1rem;
+    margin-top: 1rem; /* Increased padding above the icons */
 }
 
 /* Style the social links properly */
