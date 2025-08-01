@@ -97,10 +97,6 @@ pre[class*="language-"], code[class*="language-"],
   font-feature-settings: "liga" 0, "calt" 0 !important;
 }
 
-
-
-
-
 [class*="highlight"] *, [class*="language-"] *, [class*="codehilite"] * {
   font-family: var(--code-font) !important;
 }

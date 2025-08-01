@@ -17,6 +17,8 @@ nav:
     - License: About/license_info.md
     - Contributors: About/people_info.md
     - How to Contribute: About/contribute.md
+  
+  - Resources:
 
 theme:
   name: material

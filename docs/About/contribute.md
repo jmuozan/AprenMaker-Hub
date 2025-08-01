@@ -1,6 +1,6 @@
 # How to Contribute to AprenMaker-Hub
 
-Welcome to the AprenMaker-Hub contribution guide! We're excited that you're interested in helping make this project even better.
+Welcome to the AprenMaker-Hub contribution guide! I'm excited that you're interested in helping make this project even better.
 
 ## Why Your Contribution Matters
 
@@ -38,7 +38,7 @@ Welcome to the AprenMaker-Hub contribution guide! We're excited that you're inte
     - **Event Organization**: Organize workshops or meetups
 
 !!! tip "Not a Coder? No Problem!"
-    Some of our most valuable contributions come from non-developers. Content creators, educators, designers, and community organizers are all essential to making AprenMaker-Hub a success.
+    Some of the most valuable contributions could come from non-developers. Content creators, educators, designers, and community organizers are all essential to making AprenMaker-Hub a success.
 
 ---
 
