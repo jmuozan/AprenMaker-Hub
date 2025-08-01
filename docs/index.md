@@ -18,4 +18,4 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Using Emojis
 
-I like to drink :beers: after I played :soccer:
+I like :material-linkedin:, :material-github:, :material-instagram:, :material-twitter:, :material-youtube:, :material-facebook:, :fontawesome-solid-envelope:, :fontawesome-solid-globe:
