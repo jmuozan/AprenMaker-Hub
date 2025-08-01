@@ -104,7 +104,7 @@ If you have any questions about the licensing terms or need clarification for yo
 
 1. Check the [GitHub repository](https://github.com/jmuozan/AprenMaker-Hub) for updates
 2. Open an issue for public discussion
-3. Contact the maintainer directly at jmuozan@gmail.com
+3. Contact me directly at jmuozan@gmail.com
 
 ---
 

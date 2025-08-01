@@ -4,6 +4,7 @@ Meet the amazing people who make AprenMaker-Hub possible! This project thrives t
 
 ## People
 
+{{ render_all_contributors() }}
 
 ---
 
@@ -35,7 +36,7 @@ We're always looking for passionate contributors to help improve AprenMaker-Hub!
     - Organize local meetups or workshops
 
 !!! info "Contributor Recognition"
-    When you make significant contributions to AprenMaker-Hub, we'll add your profile card to this page! This includes:
+    When you make contributions to AprenMaker-Hub, your profile card will be added to this page! This includes:
     
     - Your photo and bio
     - Links to your social media and portfolio
@@ -63,21 +64,20 @@ We're always looking for passionate contributors to help improve AprenMaker-Hub!
     - Test your changes before submitting
 
 !!! success "After Your First Contribution"
-    - You'll be invited to join our contributor discussions
-    - Your GitHub profile will be linked in our acknowledgments
-    - Significant contributors get featured on this page!
+    - You'll be invited to join contributor discussions
+    - Your GitHub profile will be linked in acknowledgments
 
 ---
 
 ## Special Thanks
 
-We also want to acknowledge the broader community that makes this project possible:
+Also want to acknowledge the broader community that makes this project possible:
 
 - **MkDocs Community**: For the amazing documentation framework
 - **Material Theme Developers**: For the beautiful and functional design
-- **Open Source Contributors**: Who build the tools we depend on
-- **Educators and Students**: Who use and provide feedback on our resources
+- **Open Source Contributors**: Who build the tools depend on
+- **Educators and Students**: Who use and provide feedback on the resources
 
 ---
 
-*Want to see your photo here? [Start contributing today!](https://github.com/jmuozan/AprenMaker-Hub)*
+*Want to see your photo here? Do you have an amazing feature in mind? [Start contributing!](https://github.com/jmuozan/AprenMaker-Hub)*

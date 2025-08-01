@@ -1,32 +1,191 @@
 :root {
-  --md-primary-fg-color: #BC378C;
-  --md-primary-fg-color--light: #D055A0;
-  --md-primary-fg-color--dark: #A82378;
-  --md-accent-fg-color: #EB8D00;
-  --md-accent-fg-color--transparent: rgba(235, 141, 0, 0.1);
+  --md-primary-fg-color: #000000;
+  --md-primary-fg-color--light: #000000;
+  --md-primary-fg-color--dark: #000000;
+  --md-accent-fg-color: #d8eb00;
+  --md-accent-fg-color--transparent: rgba(216, 235, 0, 0.1);
 }
 
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color: #BC378C;
-  --md-primary-fg-color--light: #D055A0;
-  --md-primary-fg-color--dark: #A82378;
-  --md-accent-fg-color: #EB8D00;
-  --md-accent-fg-color--transparent: rgba(235, 141, 0, 0.1);
+  --md-primary-fg-color: #000000;
+  --md-primary-fg-color--light: #000000;
+  --md-primary-fg-color--dark: #000000;
+  --md-accent-fg-color: #d8eb00;
+  --md-accent-fg-color--transparent: rgba(216, 235, 0, 0.1);
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #BC378C;
-  --md-primary-fg-color--light: #D055A0;
-  --md-primary-fg-color--dark: #A82378;
-  --md-accent-fg-color: #EB8D00;
-  --md-accent-fg-color--transparent: rgba(235, 141, 0, 0.1);
+  --md-primary-fg-color: #000000;
+  --md-primary-fg-color--light: #000000;
+  --md-primary-fg-color--dark: #000000;
+  --md-accent-fg-color: #d8eb00;
+  --md-accent-fg-color--transparent: rgba(216, 235, 0, 0.1);
 }
 
-/* Search bar border radius */
-.md-search__form {
-  border-radius: 10px !important;
+/* Contributor social links - Clean and simple */
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: #d8eb00;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
-.md-search__input {
-  border-radius: 10px !important;
+.social-link:hover {
+    color: #f0ff33;
+    transform: translateY(-2px) scale(1.1);
+}/* Contributor Cards Styling */
+.contributors-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contributor-card {
+    background: rgba(216, 235, 0, 0.05); /* Very light #d8eb00 fill */
+    border: 2px solid #d8eb00; /* Intense border */
+    border-radius: 8px; /* Smaller border radius */
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(216, 235, 0, 0.1);
+}
+
+.contributor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(216, 235, 0, 0.2);
+    border-color: #c4d400; /* Slightly darker on hover */
+}
+
+.contributor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.contributor-info {
+    flex: 1;
+}
+
+.contributor-name {
+    margin: 0 0 0.25rem 0;
+    color: white; /* Changed to white as requested */
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.contributor-role {
+    margin: 0;
+    color: #8fa000; /* Even darker tone */
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.contributor-image-container {
+    flex-shrink: 0;
+}
+
+.contributor-image {
+    width: 120px; /* Made bigger as requested */
+    height: 120px; /* Made bigger as requested */
+    border-radius: 8px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.contributor-card:hover .contributor-image {
+    opacity: 0.9;
+}
+
+.contributor-bio {
+    margin: 1rem 0;
+    line-height: 1.6;
+    color: var(--md-default-fg-color);
+}
+
+.contributor-bio p {
+    margin: 0;
+}
+
+.contributor-socials {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    /* Removed border-top separator line */
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    /* Removed all background and border styles - no boxes */
+    color: #d8eb00;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: #f0ff33; /* Brighter on hover */
+    transform: translateY(-2px) scale(1.1);
+}
+
+.social-link .social-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* This makes the SVG inherit the color from the parent */
+}
+
+/* Remove the divider styles completely */
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .contributor-card {
+    background: rgba(216, 235, 0, 0.08);
+    border-color: #b8cc00;
+}
+
+[data-md-color-scheme="slate"] .contributor-name {
+    color: #d8eb00;
+}
+
+[data-md-color-scheme="slate"] .contributor-role {
+    color: #c4d400;
+}
+
+[data-md-color-scheme="slate"] .social-link {
+    background: rgba(216, 235, 0, 0.15);
+    color: #d8eb00;
+}
+
+[data-md-color-scheme="slate"] .social-link:hover {
+    background: rgba(216, 235, 0, 0.25);
+    color: #f0ff33;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .contributor-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .contributor-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .contributor-socials {
+        justify-content: center;
+    }
 }

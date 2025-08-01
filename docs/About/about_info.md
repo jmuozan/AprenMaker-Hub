@@ -55,7 +55,7 @@ For questions, suggestions, or collaboration opportunities, feel free to reach o
 
 - **Email**: jmuozan@gmail.com
 - **LinkedIn**: [Jorge Muñoz Zanón](https://www.linkedin.com/in/jorgemunozzanon/)
-- **GitHub**: [@jmuozan](https://github.com/jmuozan)
+- **GitHub**: [jmuozan](https://github.com/jmuozan)
 
 ## Acknowledgments
 
