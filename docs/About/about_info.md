@@ -7,3 +7,4 @@ AprenMaker-Hub is a comprehensive educational documentation platform designed to
 ## Mission
 
 The mission is to democratize access to high-quality educational content and create a collaborative environment where learners can discover, contribute, and grow together in the maker ecosystem.
+

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nimbus+Sans+L:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
@@ -8,6 +9,23 @@
   --md-accent-fg-color: #d8eb00;
   --md-accent-fg-color--transparent: rgba(216, 235, 0, 0.1);
   --nimbus-font: 'Nimbus Sans L', sans-serif;
+  --code-font: 'Red Hat Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #000000;
+  --md-primary-fg-color--light: #000000;
+  --md-primary-fg-color--dark: #000000;
+  --md-accent-fg-color: #d8eb00;
+  --md-accent-fg-color--transparent: rgba(216, 235, 0, 0.1);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #000000;
+  --md-primary-fg-color--light: #000000;
+  --md-primary-fg-color--dark: #000000;
+  --md-accent-fg-color: #d8eb00;
+  --md-accent-fg-color--transparent: rgba(216, 235, 0, 0.1);
 }
 
 /* Global font override for entire website */
@@ -25,7 +43,7 @@ h1, h2, h3, h4, h5, h6,
 .md-typeset h1, .md-typeset h2, .md-typeset h3, 
 .md-typeset h4, .md-typeset h5, .md-typeset h6,
 .md-header__title, .md-nav__title, .md-footer__title {
-  font-family: var(--nimbus-font) !important;
+  font-family: 'Nimbus Sans L';
   font-weight: 700 !important;
 }
 
@@ -34,14 +52,123 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--nimbus-font) !important;
 }
 
-/* Content elements */
 p, span, div, a, li, td, th, label, input, button {
   font-family: var(--nimbus-font) !important;
 }
 
-/* Code elements keep their monospace but fallback to Nimbus for other text */
-code, pre, .md-typeset code, .md-typeset pre {
-  font-family: 'Red Hat Mono', var(--nimbus-font), monospace !important;
+code, pre, kbd, samp,
+.md-typeset code, .md-typeset pre, .md-typeset kbd, .md-typeset samp,
+.highlight, .codehilite, .highlight pre, .codehilite pre,
+.md-typeset .highlight pre, .md-typeset .codehilite pre,
+.md-typeset .highlight code, .md-typeset .codehilite code,
+.md-content code, .md-content pre,
+.md-content .highlight code, .md-content .highlight pre,
+div[class*="highlight"] code, div[class*="highlight"] pre,
+.md-typeset div[class*="highlight"] code, .md-typeset div[class*="highlight"] pre,
+.language-bash, .language-python, .language-yaml, .language-javascript,
+.language-css, .language-html, .language-markdown, .language-json,
+pre[class*="language-"], code[class*="language-"],
+.md-typeset pre[class*="language-"], .md-typeset code[class*="language-"],
+.highlight-bash code, .highlight-bash pre,
+.highlight-python code, .highlight-python pre,
+.highlight-yaml code, .highlight-yaml pre,
+.highlight-javascript code, .highlight-javascript pre,
+.highlight-css code, .highlight-css pre,
+.highlight-html code, .highlight-html pre,
+.highlight-markdown code, .highlight-markdown pre,
+.highlight-json code, .highlight-json pre,
+.highlight-shell code, .highlight-shell pre,
+.highlight-console code, .highlight-console pre,
+.highlight-text code, .highlight-text pre,
+.codehilite .code code, .codehilite .code pre,
+.highlight .code code, .highlight .code pre,
+.md-typeset .highlight-bash code, .md-typeset .highlight-bash pre,
+.md-typeset .highlight-python code, .md-typeset .highlight-python pre,
+.md-typeset .highlight-yaml code, .md-typeset .highlight-yaml pre,
+.md-typeset .highlight-javascript code, .md-typeset .highlight-javascript pre,
+.md-typeset .highlight-css code, .md-typeset .highlight-css pre,
+.md-typeset .highlight-html code, .md-typeset .highlight-html pre,
+.md-typeset .highlight-markdown code, .md-typeset .highlight-markdown pre,
+.md-typeset .highlight-json code, .md-typeset .highlight-json pre,
+.md-typeset .highlight-shell code, .md-typeset .highlight-shell pre,
+.md-typeset .highlight-console code, .md-typeset .highlight-console pre,
+.md-typeset .highlight-text code, .md-typeset .highlight-text pre {
+  font-family: var(--code-font) !important;
+  font-feature-settings: "liga" 0, "calt" 0 !important;
+}
+
+
+
+
+
+[class*="highlight"] *, [class*="language-"] *, [class*="codehilite"] * {
+  font-family: var(--code-font) !important;
+}
+
+.md-typeset code {
+  background: var(--md-code-bg-color);
+  color: var(--md-code-fg-color);
+  border-radius: 0.1rem;
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875em;
+  font-family: var(--code-font) !important;
+}
+
+/* Code block container styling with reduced margins and border radius */
+.md-typeset .highlight {
+  position: relative;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background: var(--md-code-bg-color);
+  margin: 0.5rem 0;
+}
+
+.md-typeset .highlight pre {
+  margin: 0;
+  padding: 0rem;
+  background: transparent;
+  border-radius: 0;
+  font-family: var(--code-font) !important;
+  line-height: 1.4;
+  overflow-x: auto;
+}
+
+
+.md-clipboard:hover {
+  background: rgba(216, 235, 0, 0.8);
+  color: #000000;
+  border-color: #d8eb00;
+  transform: scale(1.05);
+}
+
+.md-clipboard:active {
+  transform: scale(0.95);
+}
+
+/* Dark mode copy button */
+[data-md-color-scheme="slate"] .md-clipboard {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-md-color-scheme="slate"] .md-clipboard:hover {
+  background: rgba(216, 235, 0, 0.9);
+  color: #000000;
+  border-color: #d8eb00;
+}
+
+/* Light mode copy button */
+[data-md-color-scheme="default"] .md-clipboard {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.7);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-md-color-scheme="default"] .md-clipboard:hover {
+  background: rgba(216, 235, 0, 0.8);
+  color: #000000;
+  border-color: #d8eb00;
 }
 
 /* Libre Baskerville for italic text in markdown and contributor roles */
@@ -63,22 +190,6 @@ em, i, .md-typeset em, .md-typeset i,
   color: #d8eb00 !important;
 }
 
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color: #000000;
-  --md-primary-fg-color--light: #000000;
-  --md-primary-fg-color--dark: #000000;
-  --md-accent-fg-color: #d8eb00;
-  --md-accent-fg-color--transparent: rgba(216, 235, 0, 0.1);
-}
-
-[data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #000000;
-  --md-primary-fg-color--light: #000000;
-  --md-primary-fg-color--dark: #000000;
-  --md-accent-fg-color: #d8eb00;
-  --md-accent-fg-color--transparent: rgba(216, 235, 0, 0.1);
-}
-
 .contributors-grid {
     display: flex;
     flex-direction: column;
@@ -89,9 +200,9 @@ em, i, .md-typeset em, .md-typeset i,
 }
 
 .contributor-card {
-    background: rgba(216, 235, 0, 0.05); /* Very light #d8eb00 fill */
-    border: 2px solid #d8eb00; /* Intense border */
-    border-radius: 8px; /* Smaller border radius */
+    background: rgba(216, 235, 0, 0.05);
+    border: 2px solid #d8eb00;
+    border-radius: 8px;
     padding: 1.5rem;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(216, 235, 0, 0.1);
@@ -101,7 +212,7 @@ em, i, .md-typeset em, .md-typeset i,
 .contributor-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(216, 235, 0, 0.2);
-    border-color: #c4d400; /* Slightly darker on hover */
+    border-color: #c4d400;
 }
 
 .contributor-header {
@@ -164,7 +275,7 @@ em, i, .md-typeset em, .md-typeset i,
 .contributor-socials {
     display: flex;
     gap: 0.75rem;
-    margin-top: 1rem; /* Increased padding above the icons */
+    margin-top: 1rem;
 }
 
 /* Style the social links properly */
@@ -213,11 +324,11 @@ em, i, .md-typeset em, .md-typeset i,
 }
 
 [data-md-color-scheme="default"] .contributor-name {
-    color: #7a9900; /* Darker for better contrast on light background */
+    color: #7a9900;
 }
 
 [data-md-color-scheme="default"] .contributor-role {
-    color: #5c7300; /* Much darker for better readability */
+    color: #5c7300;
     opacity: 0.9;
 }
 

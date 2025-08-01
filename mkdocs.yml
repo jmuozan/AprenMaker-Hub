@@ -31,7 +31,9 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections 
     - navigation.expand     
-    - navigation.top        
+    - navigation.top
+    - content.code.copy        # Enable copy button for code blocks
+    - content.code.select      # Enable text selection in code blocks
   palette:
     # Dark Mode
     - scheme: slate
@@ -60,6 +62,7 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+      use_pygments: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences:
