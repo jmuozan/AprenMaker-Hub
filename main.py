@@ -96,14 +96,14 @@ def define_env(env):
             
             # Use exact same HTML structure as Material footer generates
             social_icons = {
-                'linkedin': 'fontawesome/brands/linkedin',
-                'github': 'fontawesome/brands/github',
-                'instagram': 'fontawesome/brands/instagram', 
-                'twitter': 'fontawesome/brands/twitter',
-                'youtube': 'fontawesome/brands/youtube',
-                'facebook': 'fontawesome/brands/facebook',
-                'email': 'fontawesome/solid/envelope',
-                'website': 'fontawesome/solid/globe'
+                'linkedin': ':material-linkedin:',
+                'github': ':material-github:',
+                'instagram': ':material-instagram:', 
+                'twitter': ':material-twitter:',
+                'youtube': ':material-youtube:',
+                'facebook': ':material-facebook:',
+                'email': ':fontawesome-solid-envelope:',
+                'website': ':fontawesome-solid-globe:'
             }
             
             for platform, url in socials.items():
