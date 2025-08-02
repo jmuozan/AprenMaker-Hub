@@ -167,12 +167,12 @@ pre[class*="language-"], code[class*="language-"],
   border-color: #d8eb00;
 }
 
-/* Libre Baskerville for italic text in markdown and contributor roles */
+/* Libre Baskerville for italic text in markdown and contributor roles 
 em, i, .md-typeset em, .md-typeset i,
 .contributor-role {
   font-family: 'Libre Baskerville', serif !important;
   font-style: italic !important;
-}
+}*/
 
 /* Dark mode - only change HOVER states and ACTIVE/CURRENT links to green */
 [data-md-color-scheme="slate"] a:hover,
