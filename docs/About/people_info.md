@@ -80,4 +80,4 @@ Also want to acknowledge the broader community that makes this project possible:
 
 ---
 
-*Want to see your photo here? Do you have an amazing feature in mind? [Start contributing!](https://github.com/jmuozan/AprenMaker-Hub)*
+*Want to see your photo here? Do you have an amazing feature in mind? [Start contributing!](contribute.md)*
