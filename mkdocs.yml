@@ -1,23 +1,36 @@
 site_name: AprenMaker-Hub
 site_url: https://jmuozan.github.io/AprenMaker-Hub/
-
 repo_url: https://github.com/jmuozan/AprenMaker-Hub
 repo_name: jmuozan/AprenMaker-Hub
 
 nav:
-  - Home: 
+  - Start Here!!!: 
     - index.md
-    - diagram-examples.md
-    - content-tabs.md
-    - code-examples.md
-    - admonitions.md
 
   - About:
-    - Project: About/about_info.md
-    - License: About/license_info.md
-    - Contributors: About/people_info.md
-    - How to Contribute: About/contribute.md
-    - Transparency: About/transparency.md
+    - Project: about/about_info.md
+    - License: about/license_info.md
+    - Contributors: about/people_info.md
+    - How to Contribute: about/contribute.md
+    - Transparency: about/transparency.md
+
+  - Create your Curriculum: creation/curriculum.md
+
+  - Explore Community Work: explore/explore.md
+
+  - Resources: 
+    - resources/index.md
+    - resources/diagram-examples.md
+    - resources/content-tabs.md
+    - resources/code-examples.md
+    - resources/admonitions.md
+
+  - Knowledge: knowledge/knowledge.md
+
+  - Guides: guides/guides.md
+
+  - Forum: forum/forum.md
+
 
 
 theme:
