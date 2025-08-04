@@ -1,6 +1,8 @@
 # Knowledge Hub
 
-Welcome to your comprehensive learning center for fab lab education. Whether you're a teacher preparing to integrate digital fabrication into your curriculum or a student exploring the world of making, this section provides structured pathways to master the tools, methodologies, and educational frameworks that power modern maker education.
+# Knowledge Hub
+
+Your comprehensive reference center for understanding the fundamentals of fab lab education. This knowledge base provides detailed information about the tools, methodologies, and educational frameworks that form the foundation of modern maker education. Use this section to build your theoretical understanding before moving to hands-on practice.
 
 <link rel="stylesheet" href="../stylesheets/knowledge/knowledge.css">
 
@@ -14,23 +16,23 @@ Welcome to your comprehensive learning center for fab lab education. Whether you
       </svg>
     </div>
     <div class="knowledge-info">
-      <h3 class="knowledge-title">Fab Lab Tools</h3>
-      <p class="knowledge-subtitle">Interactive Training & Equipment Guides</p>
+      <h3 class="knowledge-title">Tool Fundamentals</h3>
+      <p class="knowledge-subtitle">Understanding Equipment & Technologies</p>
     </div>
   </div>
   <div class="knowledge-content">
-    <p>Master the essential tools of digital fabrication through interactive web applications and hands-on training modules. Learn safety protocols, operation procedures, and creative applications for each piece of equipment in your fab lab.</p>
+    <p>Comprehensive technical documentation covering how each fab lab tool works, their capabilities and limitations, material compatibility, and underlying technologies. Essential knowledge for understanding what's possible with digital fabrication equipment.</p>
   </div>
   <div class="knowledge-topics">
-    <span class="topic-tag">3D Printers</span>
-    <span class="topic-tag">Laser Cutters</span>
-    <span class="topic-tag">CNC Machines</span>
-    <span class="topic-tag">Electronics</span>
-    <span class="topic-tag">Hand Tools</span>
-    <span class="topic-tag">Safety Protocols</span>
+    <span class="topic-tag">3D Printing Technologies</span>
+    <span class="topic-tag">Laser Cutting Principles</span>
+    <span class="topic-tag">CNC Machining Basics</span>
+    <span class="topic-tag">Electronics Components</span>
+    <span class="topic-tag">Material Properties</span>
+    <span class="topic-tag">Technical Specifications</span>
   </div>
   <div class="knowledge-action">
-    <a href="#" class="knowledge-link">Start Training →</a>
+    <a href="#" class="knowledge-link">Learn About Tools →</a>
   </div>
 </div>
 
@@ -42,23 +44,23 @@ Welcome to your comprehensive learning center for fab lab education. Whether you
       </svg>
     </div>
     <div class="knowledge-info">
-      <h3 class="knowledge-title">Educational Methodologies</h3>
-      <p class="knowledge-subtitle">Pedagogical Approaches & Teaching Strategies</p>
+      <h3 class="knowledge-title">Teaching Methodologies</h3>
+      <p class="knowledge-subtitle">Educational Theory & Pedagogical Frameworks</p>
     </div>
   </div>
   <div class="knowledge-content">
-    <p>Explore proven educational methodologies specifically adapted for maker education. Discover how to implement project-based learning, design thinking, and collaborative approaches in your fab lab or classroom environment.</p>
+    <p>In-depth exploration of educational methodologies and pedagogical approaches that work effectively in maker environments. Understand the theoretical foundations, research backing, and practical applications of different teaching strategies.</p>
   </div>
   <div class="knowledge-topics">
+    <span class="topic-tag">Constructivism Theory</span>
+    <span class="topic-tag">Design Thinking Process</span>
     <span class="topic-tag">Project-Based Learning</span>
-    <span class="topic-tag">Design Thinking</span>
-    <span class="topic-tag">STEAM Integration</span>
-    <span class="topic-tag">Assessment Methods</span>
-    <span class="topic-tag">Collaborative Learning</span>
-    <span class="topic-tag">Problem-Solving</span>
+    <span class="topic-tag">Assessment Strategies</span>
+    <span class="topic-tag">Learning Theories</span>
+    <span class="topic-tag">Collaborative Methods</span>
   </div>
   <div class="knowledge-action">
-    <a href="#" class="knowledge-link">Explore Methods →</a>
+    <a href="#" class="knowledge-link">Explore Methodologies →</a>
   </div>
 </div>
 
@@ -70,23 +72,23 @@ Welcome to your comprehensive learning center for fab lab education. Whether you
       </svg>
     </div>
     <div class="knowledge-info">
-      <h3 class="knowledge-title">Official Curricula</h3>
-      <p class="knowledge-subtitle">High School & Vocational Training Programs</p>
+      <h3 class="knowledge-title">Educational Programs</h3>
+      <p class="knowledge-subtitle">Official Curricula & Course Structures</p>
     </div>
   </div>
   <div class="knowledge-content">
-    <p>Access comprehensive information about official educational curricula for Spanish high school (ESO) and vocational training (FP) programs. Find curriculum alignments, learning objectives, and competency frameworks for maker education integration.</p>
+    <p>Detailed information about official educational programs where maker education is integrated. Understand curriculum structures, learning objectives, competency frameworks, and how digital fabrication fits into formal education pathways.</p>
   </div>
   <div class="knowledge-topics">
-    <span class="topic-tag">ESO Curricula</span>
-    <span class="topic-tag">FP Programs</span>
+    <span class="topic-tag">ESO Technology Curriculum</span>
+    <span class="topic-tag">FP Design Programs</span>
     <span class="topic-tag">Competency Frameworks</span>
-    <span class="topic-tag">Learning Objectives</span>
+    <span class="topic-tag">Learning Standards</span>
     <span class="topic-tag">Assessment Criteria</span>
-    <span class="topic-tag">Standards Alignment</span>
+    <span class="topic-tag">Program Structures</span>
   </div>
   <div class="knowledge-action">
-    <a href="#" class="knowledge-link">View Curricula →</a>
+    <a href="#" class="knowledge-link">Study Programs →</a>
   </div>
 </div>
 
@@ -94,86 +96,100 @@ Welcome to your comprehensive learning center for fab lab education. Whether you
 
 ---
 
-## For Teachers
+## Understanding Before Doing
 
-!!! info "Classroom Integration"
-    Each section provides practical guidance for integrating fab lab technologies and methodologies into traditional classroom settings, with special attention to Spanish educational standards and frameworks.
+!!! info "Knowledge Foundation"
+    This section builds your conceptual understanding of fab lab technologies, educational theories, and formal curricula. Use these resources to understand the 'why' and 'how' before engaging in practical activities.
 
-!!! tip "Professional Development"
-    Access professional development resources, certification pathways, and continuing education opportunities to enhance your maker education expertise.
+!!! note "Theory Meets Practice"
+    Each knowledge area connects theoretical understanding to real-world applications, helping you make informed decisions when designing educational experiences or choosing appropriate tools for specific projects.
 
-## For Students
+## Knowledge Areas Explained
 
-!!! success "Hands-On Learning"
-    Interactive training modules and self-paced learning paths designed to build practical skills and theoretical understanding of digital fabrication technologies.
+### Tool Fundamentals
+Deep dive into the science and engineering behind fab lab equipment. Understand:
 
-!!! note "Career Pathways"
-    Explore how maker skills connect to future career opportunities in engineering, design, technology, and creative industries.
+- **How technologies work** - The underlying principles and mechanisms
+- **Material science** - What materials work with which processes and why
+- **Limitations and capabilities** - What each tool can and cannot do
+- **Technical specifications** - Understanding specs and what they mean for your work
+- **Safety considerations** - Why certain precautions are necessary
 
----
+### Teaching Methodologies
+Explore the educational theories that make maker education effective:
 
-## Learning Pathways
+- **Learning theories** - How people learn through making and creating
+- **Pedagogical frameworks** - Structured approaches to teaching with technology
+- **Assessment methods** - How to evaluate learning in hands-on environments
+- **Research findings** - What studies tell us about effective maker education
+- **Implementation strategies** - How to apply theories in real classroom settings
 
-### For Educators New to Fab Labs
+### Educational Programs
+Comprehensive information about formal education structures:
 
-=== "Week 1-2: Foundations"
-
-    **Start With**: Safety Protocols → Basic Tool Overview → Educational Philosophy
-    
-    Get familiar with the physical space and fundamental safety requirements before diving into specific tools.
-
-=== "Week 3-4: Core Tools"
-
-    **Focus On**: 3D Printing → Laser Cutting → Basic Electronics
-    
-    Master the most commonly used tools that form the backbone of most fab lab projects.
-
-=== "Week 5-6: Pedagogy"
-
-    **Explore**: Project-Based Learning → Assessment Methods → Curriculum Integration
-    
-    Learn how to structure meaningful learning experiences around maker technologies.
-
-### For Students Beginning Their Journey
-
-=== "Foundation Track"
-
-    **Essential Skills**: Digital Design → 3D Printing → Safety Fundamentals
-    
-    Build core competencies that apply across multiple fabrication technologies.
-
-=== "Specialization Paths"
-
-    **Choose Your Focus**: Electronics & Programming | Mechanical Design | Digital Arts
-    
-    Develop expertise in specific areas aligned with your interests and career goals.
-
-### For Advanced Practitioners
-
-=== "Innovation Track"
-
-    **Advanced Topics**: Custom Tool Development → Research Methods → Industry Applications
-    
-    Push the boundaries of what's possible in educational maker spaces.
+- **Curriculum analysis** - How maker education fits into official programs
+- **Learning objectives** - What students are expected to achieve
+- **Competency mapping** - Skills and knowledge frameworks
+- **Assessment standards** - How learning is measured and evaluated
+- **Program progression** - How skills build across educational levels
 
 ---
 
-## Getting Started
+## Research and Reference
 
-Choose the area that best matches your current needs and experience level. Each section is designed to provide both theoretical understanding and practical, hands-on experience.
+### Academic Foundation
 
-### Quick Access
+=== "Educational Research"
 
-- **New to Fab Labs?** Start with our [Safety Protocols and Basic Tool Overview](#)
-- **Experienced Maker?** Jump to [Advanced Methodologies and Curriculum Design](#)
-- **Curriculum Developer?** Explore our [Official Standards and Assessment Frameworks](#)
+    **Evidence-Based Practice**: Access to research studies, academic papers, and case studies that demonstrate the effectiveness of maker education approaches.
 
-### Support Resources
+=== "Technical Documentation"
 
-!!! question "Need Help?"
-    - **Video Tutorials**: Step-by-step visual guides for every tool and process
-    - **Interactive Simulations**: Practice procedures in a safe virtual environment
-    - **Community Forum**: Connect with other educators and experienced makers
-    - **Expert Consultations**: Schedule one-on-one sessions with fab lab specialists
+    **Engineering Principles**: Detailed technical information about how digital fabrication technologies work, from basic mechanics to advanced control systems.
 
-[Join our community discussions →](../forum/forum.md) | [Contribute your expertise →](../about/contribute.md)
+=== "Curriculum Studies"
+
+    **Program Analysis**: Comprehensive examination of how maker education integrates with formal educational standards and requirements.
+
+### Practical Context
+
+=== "Real-World Applications"
+
+    **Industry Connections**: Understanding how fab lab skills connect to professional practice and career pathways.
+
+=== "Case Studies"
+
+    **Implementation Examples**: Documented examples of successful maker education programs and their outcomes.
+
+=== "Best Practices"
+
+    **Proven Approaches**: Compilation of effective strategies and methods from experienced educators and institutions.
+
+---
+
+## How to Use This Knowledge Base
+
+### For Educators
+- **Start with methodologies** to understand the pedagogical foundation
+- **Study tool fundamentals** to make informed equipment decisions  
+- **Review educational programs** to align with curriculum requirements
+
+### For Students  
+- **Begin with tool fundamentals** to understand what's possible
+- **Explore educational programs** to see career and academic pathways
+- **Study methodologies** to understand how learning happens in maker spaces
+
+### For Administrators
+- **Focus on educational programs** to understand curriculum integration
+- **Review methodologies** to understand educational value
+- **Study tool fundamentals** to make informed investment decisions
+
+---
+
+## Building Your Understanding
+
+This knowledge base serves as your reference library. Unlike hands-on training or interactive tutorials, these resources focus on building deep conceptual understanding that will inform your practical work and educational decisions.
+
+**Next Steps**: Once you've built your foundational knowledge here, move to practical application through our training modules, project guides, and community resources.
+
+[Explore our hands-on guides →](../guides/guides.md) | [Join community discussions →](../forum/forum.md)
