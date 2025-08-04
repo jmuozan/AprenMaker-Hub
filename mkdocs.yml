@@ -1,4 +1,4 @@
-site_name: AprenMaker-Hub
+site_name: AprenMaker Hub
 site_url: https://jmuozan.github.io/AprenMaker-Hub/
 repo_url: https://github.com/jmuozan/AprenMaker-Hub
 repo_name: jmuozan/AprenMaker-Hub
@@ -46,8 +46,8 @@ theme:
     - navigation.sections 
     - navigation.expand     
     - navigation.top
-    - content.code.copy        # Enable copy button for code blocks
-    - content.code.select      # Enable text selection in code blocks
+    - content.code.copy
+    - content.code.select      
   palette:
     # Dark Mode
     - scheme: slate
@@ -62,6 +62,7 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/knowledge/knowledge.css
 
 plugins:
   - search
