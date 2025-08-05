@@ -390,3 +390,390 @@ em, i, .md-typeset em, .md-typeset i,
         justify-content: center;
     }
 }
+
+/* ============================================================================
+   HEADER AUTHENTICATION STYLES - GREEN THEME
+   Add these styles to the end of your existing docs/stylesheets/extra.css
+   ============================================================================ */
+
+/* Header Authentication Styles */
+.md-header__auth {
+    display: flex;
+    align-items: center;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+
+.md-auth-login,
+.md-auth-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #d8eb00 !important;
+    border: none !important;
+    color: #000000 !important;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.75rem;
+    font-family: var(--nimbus-font);
+    text-decoration: none;
+    font-weight: 600;
+    height: 1.75rem;
+    min-width: auto;
+}
+
+.md-auth-login:hover,
+.md-auth-profile:hover {
+    background: #d8eb00 !important;
+    color: #000000 !important;
+    transform: none;
+    box-shadow: none;
+}
+
+.md-auth-login .md-icon,
+.md-auth-profile .md-icon {
+    width: 14px;
+    height: 14px;
+    fill: #000000 !important;
+}
+
+.md-auth-text {
+    color: #000000 !important;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.md-auth-icon {
+    font-size: 1rem;
+}
+
+.md-auth-arrow {
+    width: 10px;
+    height: 10px;
+    fill: #000000 !important;
+    transition: transform 0.2s ease;
+}
+
+.md-auth-profile[aria-expanded="true"] .md-auth-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Styles */
+.md-auth-dropdown {
+    position: relative;
+}
+
+.md-auth-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: var(--md-default-bg-color);
+    border: 1px solid rgba(216, 235, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(216, 235, 0, 0.15);
+    min-width: 220px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+}
+
+.md-auth-menu--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+[data-md-color-scheme="slate"] .md-auth-menu {
+    background: var(--md-default-bg-color);
+    border-color: rgba(216, 235, 0, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.md-auth-menu-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(216, 235, 0, 0.2);
+    background: rgba(216, 235, 0, 0.05);
+}
+
+.md-auth-avatar {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(216, 235, 0, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.md-auth-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.md-auth-name {
+    font-weight: 600;
+    color: var(--md-default-fg-color);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.md-auth-role {
+    font-size: 0.8rem;
+    color: #d8eb00;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.md-auth-menu-items {
+    padding: 0.5rem 0;
+}
+
+.md-auth-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--md-default-fg-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+}
+
+.md-auth-menu-item:hover {
+    background: rgba(216, 235, 0, 0.1);
+    color: #000000;
+}
+
+.md-auth-menu-item .md-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.md-auth-logout {
+    color: #dc3545 !important;
+}
+
+.md-auth-logout:hover {
+    background: rgba(220, 53, 69, 0.1) !important;
+    color: #dc3545 !important;
+}
+
+.md-auth-menu-divider {
+    height: 1px;
+    background: rgba(216, 235, 0, 0.2);
+    margin: 0.5rem 0;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .md-auth-text {
+        display: inline;
+    }
+    
+    .md-auth-login,
+    .md-auth-profile {
+        padding: 0.25rem 0.75rem;
+        height: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .md-header__auth {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    
+    /* Consistent mobile spacing */
+    .md-header__source,
+    .md-header__option,
+    [data-md-component="search"] {
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+    }
+    
+    .md-auth-text {
+        display: none;
+    }
+    
+    .md-auth-login,
+    .md-auth-profile {
+        padding: 0.3rem;
+        min-width: 32px;
+        height: 32px;
+        justify-content: center;
+    }
+    
+    .md-auth-menu {
+        right: -1rem;
+        min-width: 200px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .md-auth-login,
+    .md-auth-profile {
+        padding: 0.25rem;
+        border-radius: 4px;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .md-auth-login .md-icon,
+    .md-auth-profile .md-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Ensure proper positioning and consistent spacing for all header elements */
+.md-header__inner {
+    display: flex;
+    align-items: center;
+}
+
+/* Consistent spacing for all header elements */
+.md-header__source,
+.md-header__option,
+.md-header__auth,
+[data-md-component="search"] {
+    margin-left: 0.75rem !important;
+    margin-right: 0.75rem !important;
+}
+
+/* Override any default margins */
+.md-header__source {
+    margin: 0 0.75rem !important;
+}
+
+.md-header__option {
+    margin: 0 0.75rem !important;
+}
+
+[data-md-component="search"] {
+    margin: 0 0.75rem !important;
+}
+
+/* Element order */
+.md-header__auth {
+    order: 10; /* Position before theme toggle and GitHub source */
+}
+
+.md-header__option {
+    order: 11; /* Theme toggle after login */
+}
+
+.md-header__source {
+    order: 12; /* GitHub repo last */
+}
+
+/* Dark Mode Adjustments */
+[data-md-color-scheme="slate"] .md-auth-login,
+[data-md-color-scheme="slate"] .md-auth-profile {
+    background: #d8eb00 !important;
+    color: #000000 !important;
+}
+
+[data-md-color-scheme="slate"] .md-auth-login:hover,
+[data-md-color-scheme="slate"] .md-auth-profile:hover {
+    background: #d8eb00 !important;
+    color: #000000 !important;
+    transform: none;
+    box-shadow: none;
+}
+
+[data-md-color-scheme="slate"] .md-auth-login .md-icon,
+[data-md-color-scheme="slate"] .md-auth-profile .md-icon,
+[data-md-color-scheme="slate"] .md-auth-arrow {
+    fill: #000000 !important;
+}
+
+[data-md-color-scheme="slate"] .md-auth-text {
+    color: #000000 !important;
+}
+
+[data-md-color-scheme="slate"] .md-auth-role {
+    color: #d8eb00;
+}
+
+/* Animation for smooth transitions */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.md-auth-menu--open {
+    animation: fadeInDown 0.2s ease-out;
+}
+
+/* Fix for potential z-index issues */
+.md-header {
+    position: relative;
+    z-index: 1000;
+}
+
+.md-auth-menu {
+    z-index: 1001;
+}
+
+/* ============================================================================
+   SEARCH BAR STYLING - DARKER GREEN FOR SIZE REFERENCE
+   ============================================================================ */
+
+/* Search bar grey styling with matching border radius */
+.md-search__input {
+    background-color: #3b3b3b !important;
+    border: none !important;
+    color: #ffffff !important;
+    border-radius: 2px !important;
+}
+
+.md-search__input::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Search button */
+.md-search__icon {
+    color: #ffffff !important;
+}
+
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input {
+    background-color: #3b3b3b !important;
+}
+
+/* Dark mode adjustments for search */
+[data-md-color-scheme="slate"] .md-search__input {
+    background-color: #3b3b3b !important;
+    border: none !important;
+    color: #ffffff !important;
+    border-radius: 2px !important;
+}
+
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-md-color-scheme="slate"] .md-search__icon {
+    color: #ffffff !important;
+}

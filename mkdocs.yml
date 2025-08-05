@@ -30,8 +30,6 @@ nav:
 
   - Forum: forum/forum.md
 
-
-
 theme:
   name: material
   font:
@@ -63,6 +61,13 @@ theme:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/knowledge/knowledge.css
+
+# Add JavaScript files for authentication
+extra_javascript:
+  - javascript/authentication/auth.js
+  - javascript/authentication/ui.js
+  - javascript/authentication/integration.js
+  - javascript/authentication/header-integration.js
 
 plugins:
   - search
