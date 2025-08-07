@@ -1,5 +1,5 @@
 // docs/javascript/authentication/ui.js
-// Authentication UI Components
+// Complete Authentication UI with Netlify Identity Integration
 
 class AuthUI {
     constructor(authSystem) {
@@ -15,66 +15,116 @@ class AuthUI {
     }
     
     /**
-     * Show login modal
+     * Show enhanced login modal with Netlify options
      */
     showLogin(onSuccess = null) {
-        const modal = this.createModal('login-modal', 'Educator Access');
+        const modal = this.createModal('login-modal', 'Welcome to AprenMaker Hub');
         
         const content = `
             <div class="auth-form">
                 <div class="auth-header">
-                    <h3>Welcome to AprenMaker Hub</h3>
-                    <p>Please enter your educator access code to continue</p>
+                    <h3>Sign in to get started</h3>
+                    <p>Access the curriculum builder, save your work, and join our maker community</p>
                 </div>
                 
-                <form id="login-form" class="auth-form-fields">
-                    <div class="form-group">
-                        <label for="access-code">Access Code</label>
-                        <input 
-                            type="text" 
-                            id="access-code" 
-                            placeholder="Enter your access code"
-                            required
-                            autocomplete="off"
-                        >
-                        <small class="form-help">Contact your administrator if you don't have an access code</small>
-                    </div>
-                    
-                    <div class="form-group checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="remember-me">
-                            <span class="checkmark"></span>
-                            Keep me logged in
-                        </label>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">
-                            <span class="btn-text">Access Platform</span>
-                            <div class="btn-loader" style="display: none;"></div>
+                <!-- Netlify Identity Login Options -->
+                <div class="auth-section netlify-section">
+                    <h4>Sign in with your account</h4>
+                    <div class="auth-buttons">
+                        <button class="auth-button netlify-btn" onclick="authUI.handleNetlifyLogin()">
+                            <svg class="auth-icon" viewBox="0 0 24 24">
+                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                            </svg>
+                            <span>Sign in / Create Account</span>
                         </button>
-                        <button type="button" class="btn btn-secondary" onclick="authUI.showDemoLogin()">
-                            Try Demo
-                        </button>
+                        
+                        <div class="provider-options">
+                            <small>Supports GitHub, Google, Email, and more</small>
+                        </div>
                     </div>
-                </form>
+                </div>
+                
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                
+                <!-- Institutional Access Codes -->
+                <div class="auth-section code-section">
+                    <h4>Institutional Access</h4>
+                    <form id="login-form" class="auth-form-fields">
+                        <div class="form-group">
+                            <label for="access-code">Access Code</label>
+                            <input 
+                                type="text" 
+                                id="access-code" 
+                                placeholder="Enter your institutional code"
+                                required
+                                autocomplete="off"
+                            >
+                            <small class="form-help">Have an enhanced access code from your institution?</small>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember-me">
+                                <span class="checkmark"></span>
+                                Keep me logged in
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn-text">Access Platform</span>
+                                <div class="btn-loader" style="display: none;"></div>
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="authUI.showDemoLogin()">
+                                Try Demo
+                            </button>
+                        </div>
+                    </form>
+                </div>
                 
                 <div class="auth-error" id="login-error" style="display: none;"></div>
                 
+                <div class="auth-benefits">
+                    <h4>Why sign in?</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💾</div>
+                            <div class="benefit-text">Save your curricula and projects</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎯</div>
+                            <div class="benefit-text">Get personalized content recommendations</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">👥</div>
+                            <div class="benefit-text">Connect with the maker community</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📊</div>
+                            <div class="benefit-text">Track your learning progress</div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="auth-help">
                     <details>
-                        <summary>Need help accessing the platform?</summary>
+                        <summary>Need help or have questions?</summary>
                         <div class="help-content">
-                            <h4>For ESO Teachers:</h4>
-                            <p>Use code: <code>valencia_eso_2025</code> or <code>madrid_eso_2025</code></p>
+                            <h4>Account Options:</h4>
+                            <p><strong>Personal Account:</strong> Sign in with GitHub, Google, or email for community access</p>
+                            <p><strong>Institutional Access:</strong> Enhanced permissions with special access codes</p>
                             
-                            <h4>For FP Instructors:</h4>
-                            <p>Use code: <code>fp_digital_2025</code> or <code>fp_design_2025</code></p>
+                            <h4>Demo Access Codes:</h4>
+                            <p>ESO Educator: <code>valencia_eso_2025</code></p>
+                            <p>FP Instructor: <code>fp_digital_2025</code></p>
+                            <p>Quick Demo: <code>demo_teacher</code></p>
                             
-                            <h4>For Demo Access:</h4>
-                            <p>Use code: <code>demo_teacher</code></p>
+                            <h4>Having trouble?</h4>
+                            <p>Contact us at <a href="mailto:jmuozan@gmail.com">jmuozan@gmail.com</a></p>
                             
-                            <small>Note: These are demonstration codes. In production, you would receive your unique access code from your institution.</small>
+                            <small>Note: Personal accounts get community access. Institutional codes provide enhanced tools and permissions.</small>
                         </div>
                     </details>
                 </div>
@@ -87,96 +137,40 @@ class AuthUI {
         const form = modal.querySelector('#login-form');
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            this.handleLogin(onSuccess);
-        });
-        
-        // Focus on input
-        setTimeout(() => {
-            modal.querySelector('#access-code').focus();
-        }, 100);
-        
-        this.showModal(modal);
-    }
-    
-    /**
-     * Show demo login options
-     */
-    showDemoLogin() {
-        const modal = this.createModal('demo-modal', 'Demo Access');
-        
-        const content = `
-            <div class="demo-options">
-                <div class="demo-header">
-                    <h3>Choose Your Demo Profile</h3>
-                    <p>Experience the platform from different educator perspectives</p>
-                </div>
-                
-                <div class="demo-profiles">
-                    <div class="demo-profile" data-code="valencia_eso_2025">
-                        <div class="profile-icon">🏫</div>
-                        <div class="profile-info">
-                            <h4>ESO Technology Teacher</h4>
-                            <p>Valencia Region • 25 students • Basic tools</p>
-                            <ul>
-                                <li>Arduino projects</li>
-                                <li>3D printing basics</li>
-                                <li>50-minute sessions</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="demo-profile" data-code="fp_digital_2025">
-                        <div class="profile-icon">⚙️</div>
-                        <div class="profile-info">
-                            <h4>FP Digital Fabrication</h4>
-                            <p>FP Center • 15 students • Advanced tools</p>
-                            <ul>
-                                <li>Laser cutting & CNC</li>
-                                <li>Advanced electronics</li>
-                                <li>2-hour workshops</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="demo-profile" data-code="demo_teacher">
-                        <div class="profile-icon">🎓</div>
-                        <div class="profile-info">
-                            <h4>General Demo Account</h4>
-                            <p>Demo School • Limited features</p>
-                            <ul>
-                                <li>Basic curriculum creation</li>
-                                <li>Community access</li>
-                                <li>No save functionality</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="demo-actions">
-                    <button class="btn btn-secondary" onclick="authUI.showLogin()">
-                        ← Back to Login
-                    </button>
-                </div>
-            </div>
-        `;
-        
-        modal.querySelector('.modal-body').innerHTML = content;
-        
-        // Setup profile selection
-        modal.querySelectorAll('.demo-profile').forEach(profile => {
-            profile.addEventListener('click', () => {
-                const code = profile.dataset.code;
-                this.loginWithCode(code, false);
-            });
+            this.handleCodeLogin(onSuccess);
         });
         
         this.showModal(modal);
     }
     
     /**
-     * Handle login form submission
+     * Handle Netlify Identity login
      */
-    async handleLogin(onSuccess = null) {
+    handleNetlifyLogin() {
+        if (!this.auth.isNetlifyReady()) {
+            this.showNotification('Authentication service is loading. Please try again in a moment.', 'warning');
+            return;
+        }
+        
+        try {
+            // Close the current modal
+            this.hideModal();
+            
+            // Open Netlify Identity modal
+            window.netlifyIdentity.open();
+            
+            this.showNotification('Opening sign-in options...', 'info', 2000);
+            
+        } catch (error) {
+            console.error('Netlify login error:', error);
+            this.showNotification('Authentication service unavailable. Please try again later.', 'error');
+        }
+    }
+    
+    /**
+     * Handle institutional code login
+     */
+    async handleCodeLogin(onSuccess = null) {
         const form = document.getElementById('login-form');
         const codeInput = document.getElementById('access-code');
         const rememberCheckbox = document.getElementById('remember-me');
@@ -207,6 +201,9 @@ class AuthUI {
                 // Trigger login event
                 this.dispatchEvent('login', result);
                 
+            } else if (result.pending) {
+                this.showNotification(result.message, 'info');
+                this.hideModal();
             } else {
                 errorDiv.textContent = result.error;
                 errorDiv.style.display = 'block';
@@ -224,6 +221,92 @@ class AuthUI {
     }
     
     /**
+     * Show demo login options
+     */
+    showDemoLogin() {
+        const modal = this.createModal('demo-modal', 'Try AprenMaker Hub');
+        
+        const content = `
+            <div class="demo-options">
+                <div class="demo-header">
+                    <h3>Choose Your Experience</h3>
+                    <p>Explore the platform with different educator perspectives</p>
+                </div>
+                
+                <div class="demo-profiles">
+                    <div class="demo-profile" data-code="valencia_eso_2025">
+                        <div class="profile-icon">🏫</div>
+                        <div class="profile-info">
+                            <h4>ESO Technology Teacher</h4>
+                            <p>Secondary education • 25 students • Basic fabrication tools</p>
+                            <ul>
+                                <li>Arduino programming projects</li>
+                                <li>3D printing fundamentals</li>
+                                <li>50-minute class sessions</li>
+                                <li>Educational standards alignment</li>
+                            </ul>
+                        </div>
+                        <div class="profile-badge">Enhanced Access</div>
+                    </div>
+                    
+                    <div class="demo-profile" data-code="fp_digital_2025">
+                        <div class="profile-icon">⚙️</div>
+                        <div class="profile-info">
+                            <h4>FP Digital Fabrication</h4>
+                            <p>Vocational training • 15 students • Professional tools</p>
+                            <ul>
+                                <li>Laser cutting & CNC machining</li>
+                                <li>Advanced electronics & IoT</li>
+                                <li>2-hour workshop sessions</li>
+                                <li>Industry-standard workflows</li>
+                            </ul>
+                        </div>
+                        <div class="profile-badge">Professional Tools</div>
+                    </div>
+                    
+                    <div class="demo-profile" data-code="demo_teacher">
+                        <div class="profile-icon">🎓</div>
+                        <div class="profile-info">
+                            <h4>Community Member</h4>
+                            <p>General access • Basic features</p>
+                            <ul>
+                                <li>Curriculum creation basics</li>
+                                <li>Community resource access</li>
+                                <li>Standard tool library</li>
+                                <li>Getting started tutorials</li>
+                            </ul>
+                        </div>
+                        <div class="profile-badge">Quick Start</div>
+                    </div>
+                </div>
+                
+                <div class="demo-actions">
+                    <button class="btn btn-secondary" onclick="authUI.showLogin()">
+                        ← Back to Sign In
+                    </button>
+                </div>
+                
+                <div class="demo-note">
+                    <p><strong>Note:</strong> Demo accounts showcase different permission levels. 
+                    Sign in with your personal account for full community access and the ability to save your work.</p>
+                </div>
+            </div>
+        `;
+        
+        modal.querySelector('.modal-body').innerHTML = content;
+        
+        // Setup profile selection
+        modal.querySelectorAll('.demo-profile').forEach(profile => {
+            profile.addEventListener('click', () => {
+                const code = profile.dataset.code;
+                this.loginWithCode(code, false);
+            });
+        });
+        
+        this.showModal(modal);
+    }
+    
+    /**
      * Login with specific code (for demo profiles)
      */
     async loginWithCode(code, remember = false) {
@@ -234,34 +317,42 @@ class AuthUI {
             this.hideModal();
             this.dispatchEvent('login', result);
         } else {
-            alert(result.error);
+            this.showNotification(result.error || 'Login failed', 'error');
         }
     }
     
     /**
-     * Show user profile/status
+     * Show enhanced user profile with Netlify integration
      */
     showProfile() {
         const educator = this.auth.getEducator();
         if (!educator) return;
         
-        const modal = this.createModal('profile-modal', 'Educator Profile');
+        const modal = this.createModal('profile-modal', 'Your Profile');
         
         const session = this.auth.getSession();
         const timeLeft = new Date(session.expires) - new Date();
         const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
         const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         
+        const netlifyUser = this.auth.getNetlifyUser();
+        const isNetlifyUser = session.type === 'netlify';
+        
         const content = `
             <div class="profile-info">
                 <div class="profile-header">
                     <div class="profile-avatar">
-                        ${this.getEducatorIcon(educator.level)}
+                        ${educator.avatar ? 
+                            `<img src="${educator.avatar}" alt="${educator.name}" class="avatar-image" />` : 
+                            this.getEducatorIcon(educator.level)
+                        }
                     </div>
                     <div class="profile-details">
                         <h3>${educator.name}</h3>
                         <p class="profile-role">${educator.role}</p>
                         <p class="profile-school">${educator.school}</p>
+                        ${educator.email ? `<p class="profile-email">${educator.email}</p>` : ''}
+                        ${isNetlifyUser ? `<p class="profile-provider">Connected via ${educator.provider}</p>` : ''}
                     </div>
                 </div>
                 
@@ -275,8 +366,24 @@ class AuthUI {
                         <span class="stat-value">${educator.level.toUpperCase()}</span>
                     </div>
                     <div class="stat-item">
+                        <span class="stat-label">Account Type:</span>
+                        <span class="stat-value">${session.type === 'netlify' ? 'Personal Account' : 'Institutional Access'}</span>
+                    </div>
+                    <div class="stat-item">
                         <span class="stat-label">Available Tools:</span>
                         <span class="stat-value">${educator.tools.length} tools</span>
+                    </div>
+                </div>
+                
+                <div class="profile-permissions">
+                    <h4>Your Permissions</h4>
+                    <div class="permissions-grid">
+                        ${educator.permissions.map(permission => `
+                            <div class="permission-item">
+                                <span class="permission-icon">✓</span>
+                                <span>${this.formatPermission(permission)}</span>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
                 
@@ -285,30 +392,50 @@ class AuthUI {
                     <div class="tools-grid">
                         ${educator.tools.map(tool => `
                             <div class="tool-item">
-                                ${this.getToolIcon(tool)}
-                                <span>${this.formatToolName(tool)}</span>
+                                <span class="tool-icon">${this.getToolIcon(tool)}</span>
+                                <span class="tool-name">${this.formatToolName(tool)}</span>
                             </div>
                         `).join('')}
                     </div>
                 </div>
                 
-                <div class="profile-permissions">
-                    <h4>Permissions</h4>
-                    <div class="permissions-list">
-                        ${educator.permissions.map(permission => `
-                            <div class="permission-item">
-                                ✓ ${this.formatPermission(permission)}
+                ${isNetlifyUser && netlifyUser ? `
+                    <div class="profile-netlify">
+                        <h4>Account Information</h4>
+                        <div class="netlify-info">
+                            <div class="netlify-item">
+                                <span class="netlify-label">User ID:</span>
+                                <span class="netlify-value">${netlifyUser.id.substring(0, 8)}...</span>
                             </div>
-                        `).join('')}
+                            ${netlifyUser.user_metadata?.full_name ? `
+                                <div class="netlify-item">
+                                    <span class="netlify-label">Full Name:</span>
+                                    <span class="netlify-value">${netlifyUser.user_metadata.full_name}</span>
+                                </div>
+                            ` : ''}
+                            <div class="netlify-item">
+                                <span class="netlify-label">Sign-in Method:</span>
+                                <span class="netlify-value">${educator.provider}</span>
+                            </div>
+                            <div class="netlify-item">
+                                <span class="netlify-label">Email Verified:</span>
+                                <span class="netlify-value">${netlifyUser.email_confirmed_at ? 'Yes' : 'No'}</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                ` : ''}
                 
                 <div class="profile-actions">
                     <button class="btn btn-secondary" onclick="authUI.extendSession()">
                         Extend Session
                     </button>
+                    ${isNetlifyUser ? `
+                        <button class="btn btn-secondary" onclick="authUI.updateNetlifyProfile()">
+                            Update Profile
+                        </button>
+                    ` : ''}
                     <button class="btn btn-danger" onclick="authUI.confirmLogout()">
-                        Logout
+                        Sign Out
                     </button>
                 </div>
             </div>
@@ -319,14 +446,32 @@ class AuthUI {
     }
     
     /**
-     * Confirm logout
+     * Update Netlify profile
+     */
+    updateNetlifyProfile() {
+        if (this.auth.isNetlifyReady()) {
+            this.hideModal();
+            window.netlifyIdentity.open('signup');
+        } else {
+            this.showNotification('Profile update unavailable', 'warning');
+        }
+    }
+    
+    /**
+     * Confirm logout with enhanced messaging
      */
     confirmLogout() {
-        if (confirm('Are you sure you want to logout? Any unsaved work will be lost.')) {
+        const session = this.auth.getSession();
+        const isNetlify = session?.type === 'netlify';
+        
+        const message = isNetlify 
+            ? 'Are you sure you want to sign out? This will sign you out of both AprenMaker Hub and your connected account. Any unsaved work will be lost.'
+            : 'Are you sure you want to sign out? Any unsaved work will be lost.';
+            
+        if (confirm(message)) {
             this.auth.logout();
             this.hideModal();
-            this.dispatchEvent('logout');
-            location.reload();
+            this.showNotification('You have been signed out successfully', 'info');
         }
     }
     
@@ -336,7 +481,12 @@ class AuthUI {
     extendSession() {
         if (this.auth.extendSession()) {
             this.showNotification('Session extended successfully', 'success');
-            this.hideModal();
+            
+            // Refresh profile modal if open
+            const modal = document.getElementById('profile-modal');
+            if (modal) {
+                this.showProfile();
+            }
         } else {
             this.showNotification('Failed to extend session', 'error');
         }
@@ -346,15 +496,15 @@ class AuthUI {
      * Show success message after login
      */
     showSuccessMessage(educator) {
-        this.showNotification(
-            `Welcome back, ${educator.name}! You're now logged in.`,
-            'success',
-            4000
-        );
+        const welcomeMessage = educator.type === 'netlify' 
+            ? `Welcome, ${educator.name}! You're signed in with your ${educator.provider} account.`
+            : `Welcome back, ${educator.name}! You're logged in with institutional access.`;
+            
+        this.showNotification(welcomeMessage, 'success', 4000);
     }
     
     /**
-     * Show notification
+     * Show notification with enhanced styling
      */
     showNotification(message, type = 'info', duration = 3000) {
         const notification = document.createElement('div');
@@ -372,10 +522,13 @@ class AuthUI {
         // Auto remove
         setTimeout(() => {
             if (document.body.contains(notification)) {
-                notification.remove();
+                notification.classList.add('notification-fade-out');
+                setTimeout(() => notification.remove(), 300);
             }
         }, duration);
     }
+    
+    // ... [Keep all existing utility methods like createModal, showModal, etc.]
     
     /**
      * Create modal structure
@@ -510,6 +663,8 @@ class AuthUI {
      */
     getEducatorIcon(level) {
         const icons = {
+            'community': '👤',
+            'educator': '👨‍🏫',
             'eso': '🏫',
             'fp': '⚙️',
             'admin': '👨‍💼',
@@ -533,7 +688,8 @@ class AuthUI {
             'soldering_station': '🔥',
             'multimeter': '📊',
             'hand_tools': '🔨',
-            'design_software': '🎨'
+            'design_software': '🎨',
+            'basic_sensors': '📊'
         };
         return icons[tool] || '⚒️';
     }
@@ -557,6 +713,10 @@ class AuthUI {
             'fp_content': 'Access FP-specific content',
             'advanced_tools': 'Use advanced fabrication tools',
             'design_tools': 'Access design software tools',
+            'enhanced_tools': 'Enhanced tool permissions',
+            'educational_resources': 'Educational resource library',
+            'github_integration': 'GitHub integration features',
+            'google_classroom_integration': 'Google Classroom integration',
             'all': 'Full administrator access'
         };
         return descriptions[permission] || permission.replace(/_/g, ' ');
@@ -576,7 +736,7 @@ class AuthUI {
     }
     
     /**
-     * Inject CSS styles
+     * Inject enhanced CSS styles
      */
     injectStyles() {
         if (document.getElementById('auth-ui-styles')) return;
@@ -584,7 +744,7 @@ class AuthUI {
         const styles = document.createElement('style');
         styles.id = 'auth-ui-styles';
         styles.textContent = `
-            /* Auth Modal Styles using AprenMaker theme colors */
+            /* Enhanced Auth Modal Styles with Netlify Integration */
             .auth-modal {
                 position: fixed;
                 top: 0;
@@ -613,7 +773,7 @@ class AuthUI {
                 background: white;
                 border-radius: 12px;
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-                max-width: 500px;
+                max-width: 520px;
                 width: 90%;
                 max-height: 90vh;
                 overflow-y: auto;
@@ -680,7 +840,7 @@ class AuthUI {
                 padding: 0 2rem 2rem;
             }
             
-            /* Auth Form Styles */
+            /* Enhanced Auth Form Styles */
             .auth-form {
                 width: 100%;
             }
@@ -693,15 +853,131 @@ class AuthUI {
             .auth-header h3 {
                 margin: 0 0 0.5rem 0;
                 color: var(--md-primary-fg-color);
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+                font-weight: 700;
             }
             
             .auth-header p {
                 margin: 0;
                 color: var(--md-default-fg-color--light);
-                font-size: 0.95rem;
+                font-size: 1rem;
+                line-height: 1.5;
             }
             
+            /* Auth Sections */
+            .auth-section {
+                margin-bottom: 2rem;
+            }
+            
+            .auth-section h4 {
+                margin: 0 0 1rem 0;
+                color: var(--md-default-fg-color);
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+            }
+            
+            /* Netlify Section */
+            .netlify-section {
+                background: rgba(216, 235, 0, 0.05);
+                padding: 1.5rem;
+                border-radius: 12px;
+                border: 1px solid rgba(216, 235, 0, 0.2);
+            }
+            
+            .auth-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .auth-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+                padding: 1rem 1.5rem;
+                border: 2px solid #d8eb00;
+                border-radius: 8px;
+                background: #d8eb00;
+                color: #000000;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                font-family: inherit;
+            }
+            
+            .auth-button:hover {
+                background: #c4d400;
+                border-color: #c4d400;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(216, 235, 0, 0.3);
+            }
+            
+            .auth-icon {
+                width: 20px;
+                height: 20px;
+                fill: currentColor;
+            }
+            
+            .provider-options {
+                text-align: center;
+                margin-top: 0.5rem;
+            }
+            
+            .provider-options small {
+                color: var(--md-default-fg-color--light);
+                font-size: 0.85rem;
+            }
+            
+            /* Auth Divider */
+            .auth-divider {
+                text-align: center;
+                margin: 2rem 0;
+                position: relative;
+            }
+            
+            .auth-divider::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: #e0e0e0;
+            }
+            
+            .auth-divider span {
+                background: white;
+                padding: 0 1rem;
+                color: var(--md-default-fg-color--light);
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            
+            [data-md-color-scheme="slate"] .auth-divider span {
+                background: var(--md-default-bg-color);
+            }
+            
+            [data-md-color-scheme="slate"] .auth-divider::before {
+                background: var(--md-default-fg-color--lightest);
+            }
+            
+            /* Code Section */
+            .code-section {
+                background: rgba(0, 0, 0, 0.02);
+                padding: 1.5rem;
+                border-radius: 12px;
+                border: 1px solid #e0e0e0;
+            }
+            
+            [data-md-color-scheme="slate"] .code-section {
+                background: rgba(255, 255, 255, 0.02);
+                border-color: var(--md-default-fg-color--lightest);
+            }
+            
+            /* Form Elements */
             .form-group {
                 margin-bottom: 1.5rem;
             }
@@ -848,6 +1124,52 @@ class AuthUI {
                 border-color: rgba(220, 53, 69, 0.2);
             }
             
+            /* Auth Benefits */
+            .auth-benefits {
+                background: rgba(216, 235, 0, 0.05);
+                padding: 1.5rem;
+                border-radius: 12px;
+                margin: 2rem 0;
+                border: 1px solid rgba(216, 235, 0, 0.2);
+            }
+            
+            .auth-benefits h4 {
+                margin: 0 0 1rem 0;
+                color: var(--md-primary-fg-color);
+                font-size: 1.1rem;
+                text-align: center;
+            }
+            
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+            
+            .benefit-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.75rem;
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 8px;
+            }
+            
+            [data-md-color-scheme="slate"] .benefit-item {
+                background: rgba(255, 255, 255, 0.05);
+            }
+            
+            .benefit-icon {
+                font-size: 1.5rem;
+                flex-shrink: 0;
+            }
+            
+            .benefit-text {
+                font-size: 0.9rem;
+                color: var(--md-default-fg-color);
+                line-height: 1.4;
+            }
+            
             /* Help Section */
             .auth-help {
                 margin-top: 2rem;
@@ -867,11 +1189,19 @@ class AuthUI {
                 font-weight: 600;
                 color: var(--md-default-fg-color);
                 margin-bottom: 1rem;
+                padding: 0.5rem;
+                border-radius: 4px;
+                transition: background 0.2s ease;
+            }
+            
+            .auth-help summary:hover {
+                background: rgba(216, 235, 0, 0.1);
             }
             
             .help-content {
                 font-size: 0.9rem;
                 line-height: 1.6;
+                padding: 0 0.5rem;
             }
             
             .help-content h4 {
@@ -902,16 +1232,18 @@ class AuthUI {
             .demo-header h3 {
                 margin: 0 0 0.5rem 0;
                 color: var(--md-primary-fg-color);
+                font-size: 1.4rem;
             }
             
             .demo-profiles {
                 display: flex;
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.5rem;
                 margin-bottom: 2rem;
             }
             
             .demo-profile {
+                position: relative;
                 display: flex;
                 align-items: flex-start;
                 gap: 1rem;
@@ -919,17 +1251,19 @@ class AuthUI {
                 border: 2px solid #e0e0e0;
                 border-radius: 12px;
                 cursor: pointer;
-                transition: all 0.2s ease;
+                transition: all 0.3s ease;
+                background: white;
             }
             
             .demo-profile:hover {
                 border-color: #d8eb00;
                 background: rgba(216, 235, 0, 0.05);
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(216, 235, 0, 0.1);
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(216, 235, 0, 0.15);
             }
             
             [data-md-color-scheme="slate"] .demo-profile {
+                background: var(--md-default-bg-color);
                 border-color: var(--md-default-fg-color--lightest);
             }
             
@@ -939,20 +1273,28 @@ class AuthUI {
             }
             
             .profile-icon {
-                font-size: 2rem;
+                font-size: 2.5rem;
                 flex-shrink: 0;
+                width: 60px;
+                text-align: center;
+            }
+            
+            .profile-info {
+                flex: 1;
             }
             
             .profile-info h4 {
                 margin: 0 0 0.5rem 0;
                 color: var(--md-primary-fg-color);
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+                font-weight: 700;
             }
             
             .profile-info p {
                 margin: 0 0 0.75rem 0;
                 color: var(--md-default-fg-color--light);
                 font-size: 0.9rem;
+                font-weight: 500;
             }
             
             .profile-info ul {
@@ -966,11 +1308,38 @@ class AuthUI {
                 margin-bottom: 0.25rem;
             }
             
-            .demo-actions {
-                text-align: center;
+            .profile-badge {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: #d8eb00;
+                color: #000;
+                padding: 0.25rem 0.75rem;
+                border-radius: 16px;
+                font-size: 0.75rem;
+                font-weight: 600;
             }
             
-            /* Profile View */
+            .demo-actions {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            
+            .demo-note {
+                background: rgba(0, 0, 0, 0.02);
+                padding: 1rem;
+                border-radius: 8px;
+                border: 1px solid #e0e0e0;
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            [data-md-color-scheme="slate"] .demo-note {
+                background: rgba(255, 255, 255, 0.02);
+                border-color: var(--md-default-fg-color--lightest);
+            }
+            
+            /* Enhanced Profile View */
             .profile-info {
                 width: 100%;
             }
@@ -978,7 +1347,7 @@ class AuthUI {
             .profile-header {
                 display: flex;
                 align-items: center;
-                gap: 1rem;
+                gap: 1.5rem;
                 margin-bottom: 2rem;
                 padding-bottom: 1.5rem;
                 border-bottom: 1px solid #e0e0e0;
@@ -998,12 +1367,20 @@ class AuthUI {
                 align-items: center;
                 justify-content: center;
                 flex-shrink: 0;
+                overflow: hidden;
+            }
+            
+            .avatar-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
             }
             
             .profile-details h3 {
                 margin: 0 0 0.25rem 0;
                 color: var(--md-primary-fg-color);
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             
             .profile-role {
@@ -1013,17 +1390,26 @@ class AuthUI {
                 font-size: 1rem;
             }
             
-            .profile-school {
-                margin: 0;
+            .profile-school, .profile-email, .profile-provider {
+                margin: 0 0 0.125rem 0;
                 color: var(--md-default-fg-color--light);
                 font-size: 0.9rem;
             }
             
+            .profile-provider {
+                font-weight: 500;
+                color: #d8eb00;
+            }
+            
             .profile-stats {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 1rem;
                 margin-bottom: 2rem;
+                padding: 1.5rem;
+                background: rgba(216, 235, 0, 0.05);
+                border-radius: 12px;
+                border: 1px solid rgba(216, 235, 0, 0.2);
             }
             
             .stat-item {
@@ -1044,19 +1430,40 @@ class AuthUI {
                 color: #d8eb00;
             }
             
-            .profile-tools, .profile-permissions {
+            .profile-permissions, .profile-tools, .profile-netlify {
                 margin-bottom: 2rem;
             }
             
-            .profile-tools h4, .profile-permissions h4 {
+            .profile-permissions h4, .profile-tools h4, .profile-netlify h4 {
                 margin: 0 0 1rem 0;
                 color: var(--md-primary-fg-color);
                 font-size: 1.1rem;
             }
             
+            .permissions-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 0.75rem;
+            }
+            
+            .permission-item {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.5rem;
+                background: rgba(216, 235, 0, 0.1);
+                border-radius: 6px;
+                font-size: 0.9rem;
+            }
+            
+            .permission-icon {
+                color: #28a745;
+                font-weight: bold;
+            }
+            
             .tools-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
                 gap: 0.75rem;
             }
             
@@ -1064,21 +1471,59 @@ class AuthUI {
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
-                padding: 0.5rem;
+                padding: 0.75rem;
                 background: rgba(216, 235, 0, 0.1);
                 border-radius: 6px;
                 font-size: 0.85rem;
             }
             
-            .permissions-list {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
+            .tool-icon {
+                font-size: 1.2rem;
             }
             
-            .permission-item {
+            .tool-name {
+                font-weight: 500;
+            }
+            
+            /* Netlify Info Section */
+            .netlify-info {
+                background: rgba(0, 0, 0, 0.02);
+                padding: 1rem;
+                border-radius: 8px;
+                border: 1px solid #e0e0e0;
+            }
+            
+            [data-md-color-scheme="slate"] .netlify-info {
+                background: rgba(255, 255, 255, 0.02);
+                border-color: var(--md-default-fg-color--lightest);
+            }
+            
+            .netlify-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            .netlify-item:last-child {
+                border-bottom: none;
+            }
+            
+            [data-md-color-scheme="slate"] .netlify-item {
+                border-bottom-color: rgba(255, 255, 255, 0.05);
+            }
+            
+            .netlify-label {
+                font-size: 0.9rem;
+                color: var(--md-default-fg-color--light);
+                font-weight: 500;
+            }
+            
+            .netlify-value {
                 font-size: 0.9rem;
                 color: var(--md-default-fg-color);
+                font-weight: 600;
             }
             
             .profile-actions {
@@ -1088,7 +1533,7 @@ class AuthUI {
                 flex-wrap: wrap;
             }
             
-            /* Notifications */
+            /* Enhanced Notifications */
             .auth-notification {
                 position: fixed;
                 top: 20px;
@@ -1098,6 +1543,12 @@ class AuthUI {
                 border-radius: 8px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
                 animation: slideInRight 0.3s ease-out;
+                opacity: 1;
+                transition: opacity 0.3s ease;
+            }
+            
+            .notification-fade-out {
+                opacity: 0;
             }
             
             @keyframes slideInRight {
@@ -1152,6 +1603,16 @@ class AuthUI {
                 color: #ff6b7a;
             }
             
+            [data-md-color-scheme="slate"] .auth-notification.warning {
+                background: rgba(255, 193, 7, 0.1);
+                color: #ffc107;
+            }
+            
+            [data-md-color-scheme="slate"] .auth-notification.info {
+                background: rgba(23, 162, 184, 0.1);
+                color: #17a2b8;
+            }
+            
             .notification-close {
                 background: none;
                 border: none;
@@ -1160,9 +1621,12 @@ class AuthUI {
                 padding: 0.25rem;
                 border-radius: 4px;
                 margin-left: auto;
+                opacity: 0.7;
+                transition: opacity 0.2s ease;
             }
             
             .notification-close:hover {
+                opacity: 1;
                 background: rgba(0, 0, 0, 0.1);
             }
             
@@ -1171,6 +1635,7 @@ class AuthUI {
                 .modal-dialog {
                     width: 95%;
                     margin: 1rem;
+                    max-height: 95vh;
                 }
                 
                 .modal-body {
@@ -1181,32 +1646,79 @@ class AuthUI {
                     padding: 1rem 1rem 0;
                 }
                 
+                .benefits-grid {
+                    grid-template-columns: 1fr;
+                    gap: 0.75rem;
+                }
+                
                 .demo-profile {
                     flex-direction: column;
                     text-align: center;
+                    gap: 1rem;
+                }
+                
+                .profile-badge {
+                    position: static;
+                    align-self: center;
+                    margin-top: 0.5rem;
                 }
                 
                 .profile-header {
                     flex-direction: column;
                     text-align: center;
+                    gap: 1rem;
                 }
                 
                 .profile-stats {
                     grid-template-columns: 1fr;
+                    gap: 0.75rem;
                 }
                 
-                .tools-grid {
-                    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                .tools-grid, .permissions-grid {
+                    grid-template-columns: 1fr;
                 }
                 
                 .profile-actions {
                     flex-direction: column;
+                    gap: 0.75rem;
                 }
                 
                 .auth-notification {
                     left: 10px;
                     right: 10px;
                     max-width: none;
+                }
+                
+                .form-actions {
+                    gap: 0.75rem;
+                }
+            }
+            
+            /* Extra small screens */
+            @media (max-width: 480px) {
+                .modal-dialog {
+                    width: 98%;
+                    margin: 0.5rem;
+                }
+                
+                .auth-section {
+                    margin-bottom: 1.5rem;
+                }
+                
+                .netlify-section, .code-section {
+                    padding: 1rem;
+                }
+                
+                .auth-benefits {
+                    padding: 1rem;
+                }
+                
+                .demo-profiles {
+                    gap: 1rem;
+                }
+                
+                .demo-profile {
+                    padding: 1rem;
                 }
             }
         `;
