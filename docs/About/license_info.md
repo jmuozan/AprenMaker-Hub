@@ -42,7 +42,7 @@ The GNU General Public License version 3 is a free, copyleft license designed to
 
 ## Why GPL-3.0?
 
-We chose the GPL-3.0 license to ensure that this educational resource remains open and accessible to everyone. The copyleft nature of this license means that any improvements or modifications to AprenMaker-Hub will benefit the entire community.
+I chose the GPL-3.0 license to ensure that this educational resource remains open and accessible to everyone. The copyleft nature of this license means that any improvements or modifications to AprenMaker-Hub will benefit the entire community.
 
 !!! note "Key Difference from Permissive Licenses"
     Unlike MIT or Apache licenses, GPL-3.0 requires that derivative works also be open-source. This protects the commons and ensures educational resources stay free.
