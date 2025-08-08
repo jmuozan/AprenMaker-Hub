@@ -62,11 +62,8 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/knowledge/knowledge.css
 
-# Enhanced JavaScript files for Netlify authentication
 extra_javascript:
-  # Netlify Identity Widget (load first)
   - https://identity.netlify.com/v1/netlify-identity-widget.js
-  # Custom authentication system
   - javascript/authentication/auth.js
   - javascript/authentication/ui.js
   - javascript/authentication/integration.js
