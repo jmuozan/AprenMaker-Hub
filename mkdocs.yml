@@ -27,6 +27,8 @@ nav:
   - Knowledge: 
     - Overview: knowledge/knowledge.md
     - Tool Fundamentals: knowledge/tools/tools.md
+    - Teaching Methodologies: knowledge/methods/methods.md
+    - Educational Programs: knowledge/programs/programs.md
 
   - Guides: guides/guides.md
 

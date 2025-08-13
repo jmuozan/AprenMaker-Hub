@@ -60,7 +60,7 @@ Your comprehensive reference center for understanding the fundamentals of fab la
     <span class="topic-tag">Collaborative Methods</span>
   </div>
   <div class="knowledge-action">
-    <a href="#" class="knowledge-link">Explore Methodologies →</a>
+    <a href="/AprenMaker-Hub/knowledge/methods/methods/" class="knowledge-link">Explore Methodologies →</a>
   </div>
 </div>
 
@@ -88,7 +88,7 @@ Your comprehensive reference center for understanding the fundamentals of fab la
     <span class="topic-tag">Program Structures</span>
   </div>
   <div class="knowledge-action">
-    <a href="#" class="knowledge-link">Study Programs →</a>
+    <a href="/AprenMaker-Hub/knowledge/programs/programs/" class="knowledge-link">Study Programs →</a>
   </div>
 </div>
 
