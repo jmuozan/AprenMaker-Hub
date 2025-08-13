@@ -64,13 +64,6 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/knowledge/knowledge.css
 
-extra_javascript:
-  - https://identity.netlify.com/v1/netlify-identity-widget.js
-  - javascript/authentication/auth.js
-  - javascript/authentication/ui.js
-  - javascript/authentication/integration.js
-  - javascript/authentication/header-integration.js
-
 plugins:
   - search
   - macros
