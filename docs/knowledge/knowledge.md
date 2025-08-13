@@ -32,7 +32,7 @@ Your comprehensive reference center for understanding the fundamentals of fab la
     <span class="topic-tag">Technical Specifications</span>
   </div>
   <div class="knowledge-action">
-    <a href="#" class="knowledge-link">Learn About Tools →</a>
+    <a href="tools/tools/" class="knowledge-link">Learn About Tools →</a>
   </div>
 </div>
 

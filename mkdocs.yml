@@ -24,7 +24,9 @@ nav:
     - resources/code-examples.md
     - resources/admonitions.md
 
-  - Knowledge: knowledge/knowledge.md
+  - Knowledge: 
+    - Overview: knowledge/knowledge.md
+    - Tool Fundamentals: knowledge/tools/tools.md
 
   - Guides: guides/guides.md
 
