@@ -19,10 +19,10 @@ nav:
   - Explore Community Work: explore/explore.md
 
   - Resources: 
-    - resources/diagram-examples.md
-    - resources/content-tabs.md
-    - resources/code-examples.md
-    - resources/admonitions.md
+    - Diagrams: resources/diagram-examples.md
+    - Content Tabs: resources/content-tabs.md
+    - Code Examples: resources/code-examples.md
+    - Admonitions: resources/admonitions.md
 
   - Knowledge: 
     - Overview: knowledge/knowledge.md
