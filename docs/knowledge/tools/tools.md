@@ -229,70 +229,492 @@ Explore the comprehensive technical documentation for all fab lab equipment and 
 </div>
 
 <script>
-// Tool filtering functionality
+// Complete Tool Filtering and UI Enhancement Script
 document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const accessButtons = document.querySelectorAll('.access-btn');
-    const toolCards = document.querySelectorAll('.tool-card');
+    // Initialize all functionality
+    initializeToolFiltering();
+    initializeToolInteractions();
+    initializeResponsiveDesign();
     
-    // Category filtering
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            const category = this.dataset.category;
-            filterTools(category, getCurrentAccessLevel());
+    /**
+     * Initialize tool filtering functionality
+     */
+    function initializeToolFiltering() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const accessButtons = document.querySelectorAll('.access-btn');
+        const toolCards = document.querySelectorAll('.tool-card');
+        
+        // Ensure we have elements to work with
+        if (!filterButtons.length || !accessButtons.length || !toolCards.length) {
+            console.warn('Tool filtering elements not found');
+            return;
+        }
+        
+        // Category filtering
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all category buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get current filters and apply
+                const category = this.dataset.category || 'all';
+                const level = getCurrentAccessLevel();
+                filterTools(category, level);
+                
+                // Add visual feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
         });
-    });
-    
-    // Access level filtering
-    accessButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            accessButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            const level = this.dataset.level;
-            filterTools(getCurrentCategory(), level);
+        
+        // Access level filtering
+        accessButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all access buttons
+                accessButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get current filters and apply
+                const level = this.dataset.level || 'all';
+                const category = getCurrentCategory();
+                filterTools(category, level);
+                
+                // Add visual feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
         });
-    });
-    
-    function getCurrentCategory() {
-        return document.querySelector('.filter-btn.active').dataset.category;
+        
+        /**
+         * Get currently selected category
+         */
+        function getCurrentCategory() {
+            const activeBtn = document.querySelector('.filter-btn.active');
+            return activeBtn ? (activeBtn.dataset.category || 'all') : 'all';
+        }
+        
+        /**
+         * Get currently selected access level
+         */
+        function getCurrentAccessLevel() {
+            const activeBtn = document.querySelector('.access-btn.active');
+            return activeBtn ? (activeBtn.dataset.level || 'all') : 'all';
+        }
+        
+        /**
+         * Filter tools based on category and access level
+         */
+        function filterTools(category, level) {
+            let visibleCount = 0;
+            
+            toolCards.forEach((card, index) => {
+                const cardCategory = card.dataset.category || '';
+                const cardLevel = card.dataset.level || '';
+                
+                const categoryMatch = category === 'all' || cardCategory === category;
+                const levelMatch = level === 'all' || cardLevel === level;
+                
+                if (categoryMatch && levelMatch) {
+                    // Show card with animation delay
+                    setTimeout(() => {
+                        card.style.display = 'block';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        
+                        requestAnimationFrame(() => {
+                            card.style.transition = 'all 0.3s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        });
+                    }, index * 50);
+                    
+                    visibleCount++;
+                } else {
+                    // Hide card
+                    card.style.transition = 'all 0.2s ease';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(-10px)';
+                    
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 200);
+                }
+            });
+            
+            // Update results count if needed
+            updateResultsCount(visibleCount);
+        }
+        
+        /**
+         * Update visible results count
+         */
+        function updateResultsCount(count) {
+            let countElement = document.querySelector('.tools-count');
+            
+            if (!countElement) {
+                // Create count element if it doesn't exist
+                countElement = document.createElement('div');
+                countElement.className = 'tools-count';
+                countElement.style.cssText = `
+                    text-align: center;
+                    margin: 1rem 0;
+                    color: var(--md-default-fg-color--light);
+                    font-size: 0.9rem;
+                    font-family: var(--nimbus-font);
+                `;
+                
+                const toolsGrid = document.getElementById('tools-grid');
+                if (toolsGrid) {
+                    toolsGrid.parentNode.insertBefore(countElement, toolsGrid);
+                }
+            }
+            
+            if (countElement) {
+                countElement.textContent = `Showing ${count} tool${count !== 1 ? 's' : ''}`;
+            }
+        }
     }
     
-    function getCurrentAccessLevel() {
-        return document.querySelector('.access-btn.active').dataset.level;
-    }
-    
-    function filterTools(category, level) {
+    /**
+     * Initialize tool card interactions
+     */
+    function initializeToolInteractions() {
+        const toolCards = document.querySelectorAll('.tool-card');
+        
         toolCards.forEach(card => {
-            const cardCategory = card.dataset.category;
-            const cardLevel = card.dataset.level;
+            // Enhanced hover effects
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+                this.style.transition = 'all 0.3s ease';
+                
+                const img = this.querySelector('.tool-img');
+                if (img) {
+                    img.style.transform = 'scale(1.1)';
+                    img.style.transition = 'transform 0.4s ease';
+                }
+                
+                const badge = this.querySelector('.tool-badge');
+                if (badge) {
+                    badge.style.transform = 'scale(1.1)';
+                    badge.style.transition = 'transform 0.3s ease';
+                }
+            });
             
-            const categoryMatch = category === 'all' || cardCategory === category;
-            const levelMatch = level === 'all' || cardLevel === level;
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                
+                const img = this.querySelector('.tool-img');
+                if (img) {
+                    img.style.transform = 'scale(1)';
+                }
+                
+                const badge = this.querySelector('.tool-badge');
+                if (badge) {
+                    badge.style.transform = 'scale(1)';
+                }
+            });
             
-            if (categoryMatch && levelMatch) {
-                card.style.display = 'block';
-                card.style.animation = 'fadeIn 0.3s ease-in';
-            } else {
-                card.style.display = 'none';
+            // Click feedback
+            card.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(-4px) scale(0.98)';
+            });
+            
+            card.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-8px) scale(1)';
+            });
+            
+            // Keyboard navigation support
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+            
+            // Make cards focusable for accessibility
+            if (!card.hasAttribute('tabindex')) {
+                card.setAttribute('tabindex', '0');
             }
         });
     }
     
-    // Add hover effects
-    toolCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px)';
-            this.querySelector('.tool-img').style.transform = 'scale(1.1)';
+    /**
+     * Initialize responsive design enhancements
+     */
+    function initializeResponsiveDesign() {
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                adjustLayoutForScreenSize();
+            }, 250);
         });
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.querySelector('.tool-img').style.transform = 'scale(1)';
+        // Initial layout adjustment
+        adjustLayoutForScreenSize();
+        
+        /**
+         * Adjust layout based on screen size
+         */
+        function adjustLayoutForScreenSize() {
+            const toolsGrid = document.getElementById('tools-grid');
+            if (!toolsGrid) return;
+            
+            const screenWidth = window.innerWidth;
+            
+            if (screenWidth <= 480) {
+                // Extra small screens
+                toolsGrid.style.gridTemplateColumns = '1fr';
+                toolsGrid.style.gap = '1rem';
+            } else if (screenWidth <= 768) {
+                // Mobile screens
+                toolsGrid.style.gridTemplateColumns = '1fr';
+                toolsGrid.style.gap = '1.5rem';
+            } else if (screenWidth <= 1024) {
+                // Tablet screens
+                toolsGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                toolsGrid.style.gap = '1.5rem';
+            } else {
+                // Desktop screens
+                toolsGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(280px, 1fr))';
+                toolsGrid.style.gap = '2rem';
+            }
+        }
+    }
+    
+    /**
+     * Initialize search functionality (bonus feature)
+     */
+    function initializeToolSearch() {
+        // Create search input if it doesn't exist
+        let searchInput = document.querySelector('.tools-search');
+        
+        if (!searchInput) {
+            searchInput = document.createElement('input');
+            searchInput.className = 'tools-search';
+            searchInput.type = 'text';
+            searchInput.placeholder = 'Search tools...';
+            searchInput.style.cssText = `
+                width: 100%;
+                max-width: 300px;
+                padding: 0.75rem 1rem;
+                margin: 1rem auto;
+                display: block;
+                border: 2px solid rgba(216, 235, 0, 0.3);
+                border-radius: 8px;
+                background: rgba(216, 235, 0, 0.05);
+                color: var(--md-default-fg-color);
+                font-family: var(--nimbus-font);
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+            `;
+            
+            const filterBar = document.querySelector('.tools-filter-bar');
+            if (filterBar) {
+                filterBar.appendChild(searchInput);
+            }
+        }
+        
+        // Search functionality
+        let searchTimeout;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const searchTerm = this.value.toLowerCase().trim();
+                searchTools(searchTerm);
+            }, 300);
         });
+        
+        // Search styling on focus
+        searchInput.addEventListener('focus', function() {
+            this.style.borderColor = '#d8eb00';
+            this.style.background = 'rgba(216, 235, 0, 0.1)';
+        });
+        
+        searchInput.addEventListener('blur', function() {
+            this.style.borderColor = 'rgba(216, 235, 0, 0.3)';
+            this.style.background = 'rgba(216, 235, 0, 0.05)';
+        });
+        
+        /**
+         * Search through tools
+         */
+        function searchTools(searchTerm) {
+            const toolCards = document.querySelectorAll('.tool-card');
+            
+            if (!searchTerm) {
+                // If no search term, show all tools based on current filters
+                const category = getCurrentCategory();
+                const level = getCurrentAccessLevel();
+                filterTools(category, level);
+                return;
+            }
+            
+            let visibleCount = 0;
+            
+            toolCards.forEach(card => {
+                const title = card.querySelector('.tool-title')?.textContent.toLowerCase() || '';
+                const subtitle = card.querySelector('.tool-subtitle')?.textContent.toLowerCase() || '';
+                const category = card.dataset.category || '';
+                const level = card.dataset.level || '';
+                
+                const matchesSearch = title.includes(searchTerm) || 
+                                    subtitle.includes(searchTerm) || 
+                                    category.includes(searchTerm) || 
+                                    level.includes(searchTerm);
+                
+                if (matchesSearch) {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            updateResultsCount(visibleCount);
+        }
+        
+        function getCurrentCategory() {
+            const activeBtn = document.querySelector('.filter-btn.active');
+            return activeBtn ? (activeBtn.dataset.category || 'all') : 'all';
+        }
+        
+        function getCurrentAccessLevel() {
+            const activeBtn = document.querySelector('.access-btn.active');
+            return activeBtn ? (activeBtn.dataset.level || 'all') : 'all';
+        }
+        
+        function updateResultsCount(count) {
+            let countElement = document.querySelector('.tools-count');
+            if (countElement) {
+                countElement.textContent = `Showing ${count} tool${count !== 1 ? 's' : ''}`;
+            }
+        }
+        
+        function filterTools(category, level) {
+            // This would call the main filterTools function
+            // Implementation depends on your existing filter structure
+        }
+    }
+    
+    // Initialize search (optional - uncomment to enable)
+    // initializeToolSearch();
+    
+    /**
+     * Initialize keyboard shortcuts (bonus feature)
+     */
+    function initializeKeyboardShortcuts() {
+        document.addEventListener('keydown', function(e) {
+            // Only handle shortcuts when not in an input field
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+            
+            switch(e.key) {
+                case '1':
+                    e.preventDefault();
+                    clickFilterButton('all');
+                    break;
+                case '2':
+                    e.preventDefault();
+                    clickFilterButton('fabrication');
+                    break;
+                case '3':
+                    e.preventDefault();
+                    clickFilterButton('electronics');
+                    break;
+                case '4':
+                    e.preventDefault();
+                    clickFilterButton('measurement');
+                    break;
+                case '5':
+                    e.preventDefault();
+                    clickFilterButton('hand-tools');
+                    break;
+                case '6':
+                    e.preventDefault();
+                    clickFilterButton('software');
+                    break;
+                case 'Escape':
+                    // Clear search and reset filters
+                    const searchInput = document.querySelector('.tools-search');
+                    if (searchInput) {
+                        searchInput.value = '';
+                        searchInput.dispatchEvent(new Event('input'));
+                    }
+                    break;
+            }
+        });
+        
+        function clickFilterButton(category) {
+            const button = document.querySelector(`[data-category="${category}"]`);
+            if (button) {
+                button.click();
+            }
+        }
+    }
+    
+    // Initialize keyboard shortcuts (optional - uncomment to enable)
+    // initializeKeyboardShortcuts();
+    
+    /**
+     * Add loading states for better UX
+     */
+    function addLoadingStates() {
+        const toolCards = document.querySelectorAll('.tool-card');
+        
+        toolCards.forEach((card, index) => {
+            // Add loading skeleton effect
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.4s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    }
+    
+    // Add loading animation
+    addLoadingStates();
+    
+    // Console log for debugging
+    console.log('Tools page JavaScript initialized successfully');
+});
+
+// Error handling for any global errors
+window.addEventListener('error', function(e) {
+    console.warn('Tools page error caught:', e.error?.message || e.message);
+});
+
+// Handle any authentication-related elements that might not exist
+document.addEventListener('DOMContentLoaded', function() {
+    // Safely handle any missing auth elements
+    const authElements = ['auth-dropdown-menu', 'profile-modal', 'login-modal'];
+    
+    authElements.forEach(elementId => {
+        const element = document.getElementById(elementId);
+        if (!element) {
+            // Element doesn't exist, which is fine for the tools page
+            console.debug(`Element ${elementId} not found (expected on tools page)`);
+        }
     });
 });
 </script>
