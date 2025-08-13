@@ -8,21 +8,21 @@ nav:
     - index.md
 
   - About:
-    - Project: about/about_info.md
-    - License: about/license_info.md
-    - Contributors: about/people_info.md
-    - How to Contribute: about/contribute.md
-    - Transparency: about/transparency.md
+    - Project: About/about_info.md
+    - License: About/license_info.md
+    - Contributors: About/people_info.md
+    - How to Contribute: About/contribute.md
+    - Transparency: About/transparency.md
 
   - Create your Curriculum: creation/curriculum.md
 
   - Explore Community Work: explore/explore.md
 
   - Resources: 
-    - Diagrams: resources/diagram-examples.md
-    - Content Tabs: resources/content-tabs.md
-    - Code Examples: resources/code-examples.md
-    - Admonitions: resources/admonitions.md
+    - Diagrams: Resources/diagram-examples.md
+    - Content Tabs: Resources/content-tabs.md
+    - Code Examples: Resources/code-examples.md
+    - Admonitions: Resources/admonitions.md
 
   - Knowledge: 
     - Overview: knowledge/knowledge.md
