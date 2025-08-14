@@ -133,18 +133,18 @@
 
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.6rem;
     margin: 2rem 0;
 }
 
 .tool-card {
     border: 2px solid;
     border-radius: 12px;
-    padding: 0.8rem 1rem 1.8rem 1rem;
+    padding: 0.2rem 0.8rem 1.6rem 0.4rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-height: 180px;
+    min-height: 140px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -229,10 +229,10 @@
 }
 
 .tool-title {
-    margin: 0 0 0.6rem 0;
-    font-size: 1.4rem;
+    margin: 0 0 0.2rem 0;
+    font-size: 1.1rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
     transition: all 0.3s ease;
 }
 
@@ -249,8 +249,8 @@
 
 .tool-description {
     margin: 0;
-    font-size: 0.8rem;
-    line-height: 1.4;
+    font-size: 0.7rem;
+    line-height: 1.3;
     opacity: 0.8;
     margin-top: auto;
     transition: opacity 0.3s ease;
@@ -274,8 +274,8 @@
 
 @media (max-width: 1200px) {
     .tools-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 0.7rem;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.5rem;
     }
 }
 
@@ -308,22 +308,22 @@
     }
 
     .tools-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 0.6rem;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.5rem;
     }
     
     .tool-card {
-        padding: 0.7rem 0.8rem 1.5rem 0.8rem;
-        min-height: 160px;
+        padding: 0.3rem 0.6rem 1.2rem 0.3rem;
+        min-height: 120px;
     }
     
     .tool-title {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
     }
     
     .tool-description {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
     }
 }
 
@@ -334,17 +334,17 @@
     }
     
     .tool-card {
-        padding: 0.8rem 0.8rem 1.3rem 0.8rem;
-        min-height: 140px;
+        padding: 0.4rem 0.8rem 1.3rem 0.4rem;
+        min-height: 110px;
     }
     
     .tool-title {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
     }
     
     .tool-description {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
     }
 }
 </style>
