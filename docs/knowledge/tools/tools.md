@@ -10,48 +10,89 @@
 }
 
 .tool-card {
-    border-radius: 0;
-    padding: 1.5rem 1.5rem 2.5rem 1.5rem; /* Reduced top and left padding */
+    border: 2px solid;
+    border-radius: 12px;
+    padding: 1rem 1.5rem 2.5rem 1.5rem; /* Reduced top padding to match left */
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
     min-height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
 .tool-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .tool-card.software {
-    background-color: #00d8eb;
+    background: rgba(0, 216, 235, 0.05);
+    border-color: #00d8eb;
     color: #000000;
+}
+
+.tool-card.software:hover {
+    box-shadow: 0 8px 24px rgba(0, 216, 235, 0.2);
+    border-color: #00c4d6;
 }
 
 .tool-card.hardware {
-    background-color: #eb7a00;
+    background: rgba(235, 122, 0, 0.05);
+    border-color: #eb7a00;
     color: #000000;
+}
+
+.tool-card.hardware:hover {
+    box-shadow: 0 8px 24px rgba(235, 122, 0, 0.2);
+    border-color: #d66a00;
 }
 
 .tool-card.electronics {
-    background-color: #d8eb00;
+    background: rgba(216, 235, 0, 0.05);
+    border-color: #d8eb00;
     color: #000000;
+}
+
+.tool-card.electronics:hover {
+    box-shadow: 0 8px 24px rgba(216, 235, 0, 0.2);
+    border-color: #c4d400;
 }
 
 .tool-card.digital-fabrication {
-    background-color: #eb00d8;
-    color: #ffffff;
+    background: rgba(235, 0, 216, 0.05);
+    border-color: #eb00d8;
+    color: #333333;
+}
+
+.tool-card.digital-fabrication:hover {
+    box-shadow: 0 8px 24px rgba(235, 0, 216, 0.2);
+    border-color: #d600c4;
 }
 
 .tool-card.design {
-    background-color: #00eb7a;
+    background: rgba(0, 235, 122, 0.05);
+    border-color: #00eb7a;
     color: #000000;
 }
 
+.tool-card.design:hover {
+    box-shadow: 0 8px 24px rgba(0, 235, 122, 0.2);
+    border-color: #00d66a;
+}
+
 .tool-card.special {
-    background-color: #7a00eb;
-    color: #ffffff;
+    background: rgba(122, 0, 235, 0.05);
+    border-color: #7a00eb;
+    color: #333333;
+}
+
+.tool-card.special:hover {
+    box-shadow: 0 8px 24px rgba(122, 0, 235, 0.2);
+    border-color: #6a00d6;
 }
 
 .tool-title {
@@ -59,14 +100,60 @@
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.tool-card.software .tool-title {
+    color: #00b8cc;
+}
+
+.tool-card.hardware .tool-title {
+    color: #cc5f00;
+}
+
+.tool-card.electronics .tool-title {
+    color: #b8cc00;
+}
+
+.tool-card.digital-fabrication .tool-title {
+    color: #cc00b8;
+}
+
+.tool-card.design .tool-title {
+    color: #00cc5f;
+}
+
+.tool-card.special .tool-title {
+    color: #5f00cc;
+}
+
+.tool-card:hover .tool-title {
+    transform: scale(1.02);
 }
 
 .tool-description {
     margin: 0;
     font-size: 0.85rem;
     line-height: 1.4;
-    opacity: 1;
+    opacity: 0.8;
     margin-top: auto; /* Push description to bottom if needed */
+    transition: opacity 0.3s ease;
+    color: inherit;
+}
+
+/* Dark mode text color fix */
+@media (prefers-color-scheme: dark) {
+    .tool-description {
+        color: #ffffff;
+    }
+}
+
+[data-md-color-scheme="slate"] .tool-description {
+    color: #ffffff;
+}
+
+.tool-card:hover .tool-description {
+    opacity: 1;
 }
 
 @media (max-width: 1200px) {
