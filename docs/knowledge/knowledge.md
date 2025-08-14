@@ -1,7 +1,5 @@
 # Knowledge Hub
 
-# Knowledge Hub
-
 Your comprehensive reference center for understanding the fundamentals of fab lab education. This knowledge base provides detailed information about the tools, methodologies, and educational frameworks that form the foundation of modern maker education. Use this section to build your theoretical understanding before moving to hands-on practice.
 
 <link rel="stylesheet" href="../stylesheets/knowledge/knowledge.css">
