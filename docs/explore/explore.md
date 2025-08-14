@@ -1,3 +1,3 @@
-# Work In Progress!! (WIP)
+# Community creations (WIP)
 
-Come back soon!
+Here you will be able to explore the creations of the community

@@ -1,3 +1,3 @@
-# Work In Progress!! (WIP)
+# Forum (WIP)
 
-Come back soon!
+This will be the forum to connet with other makers and teachers!!!
